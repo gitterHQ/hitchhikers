@@ -1,1 +1,2 @@
-require('normalize.css');
+var _ = require('lodash');
+var Backbone = require('backbone');

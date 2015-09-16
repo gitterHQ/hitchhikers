@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server -p 9090",
-    "build": "webpack --progress"
+    "build": "webpack --progress",
+    "watch": "npm run start & webpack -w"
   },
   "keywords": [
     "Gitter",
@@ -16,14 +17,21 @@
   "author": "Jon Parsons",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^6.0.2",
     "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.3",
     "css-loader": "^0.18.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "http-server": "^0.8.0",
+    "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
+    "postcss-calc": "^5.0.0",
+    "postcss-for-var": "^1.0.3",
+    "postcss-import": "^7.0.0",
     "postcss-loader": "^0.6.0",
+    "postcss-sassy-mixins": "^1.0.0",
+    "postcss-simple-vars": "^1.0.1",
     "style-loader": "^0.12.3",
     "webpack": "^1.12.1"
   }
