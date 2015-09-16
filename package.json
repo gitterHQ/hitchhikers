@@ -25,6 +25,8 @@
     "css-loader": "^0.18.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
+    "handlebars": "^4.0.2",
+    "handlebars-loader": "^1.1.4",
     "http-server": "^0.8.0",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",

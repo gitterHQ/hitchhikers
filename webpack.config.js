@@ -16,6 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './build'),
     filename: '[name].js',
+    publicPath: '/build/',
   },
   module: {
     loaders: [
@@ -33,6 +34,14 @@ module.exports = {
         test:    /.svg$/,
         include: path.resolve(__dirname, './src/svg'),
         loader:  'file-loader',
+      },
+      {
+        test:    /.hbs$/,
+        include: path.resolve(__dirname, './src/templates'),
+        loader:  'handlebars-loader',
+        query:   {
+          //helpers
+        },
       },
     ],
   },
