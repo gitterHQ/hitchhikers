@@ -1,0 +1,3 @@
+@mixin column($span) {
+  flex: 0 0 calc(calc(100 / 12) * $span)%;
+}

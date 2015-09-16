@@ -1,0 +1,7 @@
+@import "../mixins/utils/border-box.css";
+@import "../mixins/grid/row.css";
+
+.header {
+  @include border-box();
+  @include row();
+}
