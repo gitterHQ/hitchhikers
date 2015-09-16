@@ -2,6 +2,12 @@
 @import "../mixins/grid/row.css";
 
 .header {
+
   @include border-box();
   @include row();
+
+  flex-direction: column;
+  align-items: center;
+
+  background: $brand-tertiary;
 }

@@ -1,2 +1,3 @@
 @import "normalize.css";
+@import "./components/global.css";
 @import "./components/header";
