@@ -7,6 +7,7 @@ var simpleVars   = require('postcss-simple-vars');
 var forLoops     = require('postcss-for-var');
 var calc         = require('postcss-calc');
 var autoprefixer = require('autoprefixer');
+var nested       = require('postcss-nested');
 
 module.exports = {
   entry: {
@@ -51,6 +52,7 @@ module.exports = {
           path.resolve(__dirname, './src/css'),
         ],
       }),
+      nested(),
       simpleVars({
         variables: function() {
           return require('./config/palette.js');

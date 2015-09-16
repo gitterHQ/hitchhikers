@@ -33,6 +33,7 @@
     "postcss-for-var": "^1.0.3",
     "postcss-import": "^7.0.0",
     "postcss-loader": "^0.6.0",
+    "postcss-nested": "^1.0.0",
     "postcss-sassy-mixins": "^1.0.0",
     "postcss-simple-vars": "1.0.0",
     "style-loader": "^0.12.3",

@@ -22,9 +22,10 @@
 
 .footer__detail {
   @include text-base();
-  font-size:   1.3rem;
-  line-height: 1.84rem;
-  color:       $brand-sixth;
+  font-size:      1.3rem;
+  line-height:    1.84rem;
+  letter-spacing: .15rem;
+  color:          $brand-sixth;
 }
 
 .footer__detail__icon {
@@ -35,4 +36,8 @@
 
 .footer__detail__link {
   @include anchor-reset();
+  transition: color .7s ease-in;
+  &:hover {
+    color: $brand-fith;
+  }
 }
