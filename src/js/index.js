@@ -1,1 +1,1 @@
-console.log('hello world');
+require('normalize.css');

@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -p 9090"
+    "start": "http-server -p 9090",
+    "build": "webpack --progress"
   },
   "keywords": [
     "Gitter",
@@ -15,6 +16,12 @@
   "author": "Jon Parsons",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^0.8.0"
+    "css-loader": "^0.18.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "http-server": "^0.8.0",
+    "normalize.css": "^3.0.3",
+    "postcss-loader": "^0.6.0",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.12.1"
   }
 }
