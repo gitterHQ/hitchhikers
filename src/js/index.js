@@ -1,2 +1,8 @@
-var _ = require('lodash');
-var Backbone = require('backbone');
+import Backbone from 'backbone';
+import IndexRouter from './routers/index-router';
+
+var router = new IndexRouter();
+
+Backbone.history.start({
+  pushState: true
+});

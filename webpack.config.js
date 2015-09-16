@@ -21,6 +21,9 @@ module.exports = {
       {
         test: /.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'),
       },
+      {
+        test: /.js$/, include: path.resolve(__dirname, './src/js'), loader: 'babel-loader',
+      },
     ],
   },
   plugins: [
@@ -38,7 +41,7 @@ module.exports = {
         ],
       }),
       mixins(),
-      autoprefixer()
+      autoprefixer(),
     ];
   },
 };
