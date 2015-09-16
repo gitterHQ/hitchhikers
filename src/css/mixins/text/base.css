@@ -1,0 +1,5 @@
+@mixin text-base() {
+  font-family:    'Lato', sans-serif;
+  text-transform: uppercase;
+  margin:         0;
+}

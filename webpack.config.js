@@ -19,20 +19,30 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /.css$/,
+        test:    /.css$/,
         include: path.resolve(__dirname, './src/css'),
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'),
+        loader:  ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'),
       },
       {
-        test: /.js$/,
+        test:    /.js$/,
         include: path.resolve(__dirname, './src/js'),
-        loader: 'babel-loader',
+        loader:  'babel-loader',
+      },
+      {
+        test:    /.svg$/,
+        include: path.resolve(__dirname, './src/svg'),
+        loader:  'file-loader',
       },
     ],
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
   ],
+  resolve: {
+    alias: {
+      svg: path.resolve(__dirname, './src/svg'),
+    },
+  },
   postcss: function() {
     return [
       atImport({
@@ -42,9 +52,9 @@ module.exports = {
         ],
       }),
       simpleVars({
-        variables: function (){
+        variables: function() {
           return require('./config/palette.js');
-        }
+        },
       }),
       forLoops(),
       calc(),
