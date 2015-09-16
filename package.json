@@ -12,5 +12,8 @@
     "Universe"
   ],
   "author": "Jon Parsons",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.8.0"
+  }
 }
