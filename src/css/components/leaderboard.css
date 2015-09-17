@@ -1,0 +1,21 @@
+@import "../mixins/utils/border-box.css";
+@import "../mixins/grid/row.css";
+@import "../mixins/text/base.css";
+@import "../mixins/text/h1.css";
+
+/* LEADER BOARDS */
+.leaderboard-container {
+  @include border-box();
+  @include row();
+  flex-direction: column;
+  align-items:    center;
+  padding:        8rem 0;
+  background:     $brand-first;
+  text-align:     center;
+}
+
+.leaderboard-container__heading {
+  @include text-base();
+  @include h1();
+  margin-bottom: 7rem;
+}
