@@ -4,6 +4,7 @@
 @import "../mixins/text/base.css";
 @import "../mixins/text/h1.css";
 @import "../mixins/text/h2.css";
+@import "../mixins/text/p.css";
 
 /* LEADER BOARDS */
 .leaderboard-container {
@@ -31,11 +32,39 @@
 }
 
 .leaderboard-container__leaderboards__leaderboard {
-  @include column(3);
-  min-width: 35rem;
+  @include border-box;
+  flex:       0 0 28rem;
+  margin:     0 5rem 3rem 5rem;
+  text-align: left;
+
+  @media(min-width: 780px) {
+    margin: 0 9rem;
+  }
 }
 
 .leaderboard__title {
   @include text-base();
   @include h2();
+  margin-bottom: 3rem;
+}
+
+.leaderboard__items {
+  list-style: none;
+  padding:    0;
+}
+
+.leaderboard__items__item {
+  @include row();
+  @include p();
+}
+
+.leaderboard__items__item__image {
+  width:         21px;
+  height:        21px;
+  margin:        auto 20px auto 0;
+  border-radius: 100%;
+}
+
+.leaderboard__items__item__count {
+  margin-left: auto;
 }

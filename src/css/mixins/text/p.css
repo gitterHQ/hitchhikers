@@ -1,0 +1,6 @@
+@mixin p() {
+  color:          $brand-fifth;
+  font-size:      1.6rem;
+  font-weight:    normal;
+  letter-spacing: 0.05em;
+}
