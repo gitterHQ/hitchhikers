@@ -2,6 +2,7 @@
 
 $shadow-offset: .3em;
 $shadow-hover-offset: .5em;
+$shadow-active-offset: .3em;
 
 @mixin btn-primary() {
   display:    block;
@@ -20,5 +21,9 @@ $shadow-hover-offset: .5em;
     color:        $brand-fifth;
     border-color: $brand-fifth;
     box-shadow: $brand-first $shadow-hover-offset $shadow-hover-offset 0;
+  }
+
+  &:active {
+    box-shadow: $brand-first $shadow-active-offset $shadow-active-offset 0;
   }
 }
