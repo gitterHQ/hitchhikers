@@ -56,21 +56,38 @@ module.exports = {
   },
   postcss: function() {
     return [
+
+      //parse @import statements
       atImport({
         path: [
           path.resolve(__dirname, './node_modules'),
           path.resolve(__dirname, './src/css'),
         ],
       }),
+
+      //added before simple vars so @mixin {name} ($var) can process $var
+      mixins(),
+
+      //parse $var: 'some-awesomeo-variable';
       simpleVars({
         variables: function() {
           return require('./config/palette.js');
         },
       }),
+
+      //parse @for
       forLoops(),
+
+      //parse calc();
       calc(),
+
+      //added here to process mixins after vars have been parsed
       mixins(),
+
+      //parse .className{ &:hover{} }
       nested(),
+
+      //make old browsers work like a boss (kinda...)
       autoprefixer(),
     ];
   },

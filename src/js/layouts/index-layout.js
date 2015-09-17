@@ -11,11 +11,7 @@ export default Marionette.LayoutView.extend({
     leaderBoards: '[data-component="index-layout-leaderboard"]',
   },
 
-  initialize: function() {
-  },
-
   onRender: function() {
-    console.log('RENDER BABY', this.el);
     this.leaderBoards.show(new LeadboardLayout());
   },
 });

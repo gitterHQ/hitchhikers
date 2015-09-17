@@ -1,5 +1,6 @@
 @import "../mixins/utils/border-box.css";
 @import "../mixins/grid/row.css";
+@import "../mixins/grid/column.css";
 @import "../mixins/text/base.css";
 @import "../mixins/text/h1.css";
 
@@ -18,4 +19,15 @@
   @include text-base();
   @include h1();
   margin-bottom: 7rem;
+}
+
+.leaderboard-container__leaderboards {
+  @include border-box();
+  @include row();
+  flex-direction:  row;
+  justify-content: center;
+}
+
+.leaderboard-container__leaderboards__board {
+  @include column(3);
 }
