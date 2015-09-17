@@ -40,5 +40,8 @@
     "postcss-simple-vars": "1.0.0",
     "style-loader": "^0.12.3",
     "webpack": "^1.12.1"
+  },
+  "dependencies": {
+    "octicons": "^2.4.1"
   }
 }

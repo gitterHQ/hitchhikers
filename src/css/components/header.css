@@ -7,15 +7,16 @@
   @include row();
   flex-direction: column;
   align-items:    center;
-  padding:        5rem;
+  padding:        5rem 0;
   background:     $brand-third;
 }
 
 .header__logo {
-  background:    url('~svg/gitter-planet-icon.svg');
-  width:         188px;
-  height:        147px;
-  margin-bottom: 2.4rem;
+  background:      url('~svg/gitter-planet-icon.svg');
+  width:           90px;
+  height:          70px;
+  background-size: 100%;
+  margin-bottom:   2.4rem;
 }
 
 .header__title {

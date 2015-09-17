@@ -1,0 +1,24 @@
+@impor "../text/base.css";
+
+$shadow-offset: .3em;
+$shadow-hover-offset: .5em;
+
+@mixin btn-primary() {
+  display:    block;
+
+  padding: .7em 4em;
+
+  border: 1px solid $brand-third;
+  background: $brand-second;
+  color:      $brand-third;
+  box-shadow: $brand-first $shadow-offset $shadow-offset 0;
+
+  transition: all .1s ease-in;
+
+  &:hover {
+    cursor:       pointer;
+    color:        $brand-fifth;
+    border-color: $brand-fifth;
+    box-shadow: $brand-first $shadow-hover-offset $shadow-hover-offset 0;
+  }
+}

@@ -1,0 +1,6 @@
+@mixin h2() {
+  color:          $brand-sixth;
+  font-size:      1.6rem;
+  font-weight:    bold;
+  letter-spacing: .03em;
+}

@@ -14,9 +14,10 @@ module.exports = {
     app: path.resolve(__dirname, './src/js/index.js'),
   },
   output: {
-    path: path.resolve(__dirname, './build'),
-    filename: '[name].js',
-    publicPath: '/build/',
+    path:          path.resolve(__dirname, './build'),
+    filename:      '[name].js',
+    chunkFilename: '[chunkhash].js',
+    publicPath:    '/build/',
   },
   module: {
     loaders: [
@@ -61,7 +62,6 @@ module.exports = {
           path.resolve(__dirname, './src/css'),
         ],
       }),
-      nested(),
       simpleVars({
         variables: function() {
           return require('./config/palette.js');
@@ -70,6 +70,7 @@ module.exports = {
       forLoops(),
       calc(),
       mixins(),
+      nested(),
       autoprefixer(),
     ];
   },

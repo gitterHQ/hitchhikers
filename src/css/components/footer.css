@@ -8,7 +8,7 @@
   @include row();
   flex-direction: column;
   align-items:    center;
-  padding:        9rem;
+  padding:        9rem 0;
   background:     $brand-second;
 }
 
@@ -29,15 +29,15 @@
 }
 
 .footer__detail__icon {
-  color:     $brand-fith;
+  color:     $brand-fifth;
   font-size: 2rem;
   margin:    0 .3em;
 }
 
 .footer__detail__link {
   @include anchor-reset();
-  transition: color .7s ease-in;
+  transition: color .3s ease-in;
   &:hover {
-    color: $brand-fith;
+    color: $brand-fifth;
   }
 }
