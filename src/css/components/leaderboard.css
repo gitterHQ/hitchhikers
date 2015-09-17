@@ -3,6 +3,7 @@
 @import "../mixins/grid/column.css";
 @import "../mixins/text/base.css";
 @import "../mixins/text/h1.css";
+@import "../mixins/text/h2.css";
 
 /* LEADER BOARDS */
 .leaderboard-container {
@@ -25,9 +26,16 @@
   @include border-box();
   @include row();
   flex-direction:  row;
+  flex-wrap:       wrap;
   justify-content: center;
 }
 
-.leaderboard-container__leaderboards__board {
+.leaderboard-container__leaderboards__leaderboard {
   @include column(3);
+  min-width: 35rem;
+}
+
+.leaderboard__title {
+  @include text-base();
+  @include h2();
 }
