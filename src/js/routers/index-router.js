@@ -6,9 +6,10 @@ export default Backbone.Router.extend({
   },
   onIndexRoute: function() {
     require(['../layouts/index-layout'], (IndexLayout) => {
-      new IndexLayout({
+      var indexLayout = new IndexLayout({
         el: '[data-component=application]',
       });
+      indexLayout.render();
     });
   },
 });
