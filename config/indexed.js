@@ -1,10 +1,13 @@
 module.exports = {
   name: 'github-universe',
-  version: 1,
+  version: 2,
   objects: [
     {
       name: 'permissions',
       indexes: [],
+    },
+    {
+      name:  'user',
     },
   ],
 };
