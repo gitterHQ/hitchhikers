@@ -10,6 +10,8 @@ export var getPermissions = () => {
       .then((permissions) => {
         resolve(permissions);
       })
+
+      //assume an error here means there is no permissions object in the database
       .catch((err) => {
         resolve({});
       });

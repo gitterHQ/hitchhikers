@@ -17,7 +17,7 @@
   text-align:     center;
 }
 
-.leaderboard-container__heading {
+.leaderboard-container__title {
   @include text-base();
   @include h1();
   margin-bottom: 7rem;

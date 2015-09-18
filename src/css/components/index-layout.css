@@ -37,20 +37,3 @@
   margin:         0 .3em;
   vertical-align: text-top;
 }
-
-/* LEADER BOARDS */
-.index-layout__leaderboard-container {
-  @include border-box();
-  @include row();
-  flex-direction: column;
-  align-items:    center;
-  padding:        8rem 0;
-  background:     $brand-first;
-  text-align:     center;
-}
-
-.index-layout__leaderboard-container__heading {
-  @include text-base();
-  @include h1();
-  margin-bottom: 7rem;
-}

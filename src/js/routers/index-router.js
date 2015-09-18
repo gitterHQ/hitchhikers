@@ -10,6 +10,7 @@ export default Backbone.Router.extend({
   routes: {
     '':                 'onIndexRoute',
     'login':            'onRouteLoggedIn',
+    'details':          'onRouterDetailsForm',
     'error/:errorType': 'onRouteError',
   },
 
@@ -17,9 +18,23 @@ export default Backbone.Router.extend({
   onIndexRoute: function() {
     getPermissions()
       .then((permissions) => {
+        //if we already have an access key don't show the index page
+        //as the user is already logged in
         if (permissions.accessKey) {
-          //logged in
+          //TODO this needs to be persisted on the server
+          if (permissions.hasCompletedForm) {
+            //if the user has never added their details or permissions direct to the form
+            console.log('redirect to main page');
+          } else {
+            require(['../layouts/settings-layout'], (SettingsLayout) => {
+              var settingsLayout = new SettingsLayout({
+                el: '[data-component="application"]',
+              });
+              settingsLayout.render();
+            });
+          }
         }
+
         //If we are not logged in show the home page
         else {
           require(['../layouts/index-layout'], (IndexLayout) => {
