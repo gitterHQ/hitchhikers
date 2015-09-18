@@ -5,6 +5,4 @@ import IndexRouter from './routers/index-router';
 
 var router = new IndexRouter();
 
-Backbone.history.start({
-  pushState: true,
-});
+Backbone.history.start();
