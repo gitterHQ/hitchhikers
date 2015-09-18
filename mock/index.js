@@ -95,7 +95,6 @@ app.get('/client/key', function(req, res) {
 });
 
 app.post('/client/token', function(req, res) {
-  console.log(req.body);
   var query = querystring.stringify({
     client_id: require('../config/api.js').clientId,
     client_secret: process.env.UNIVERSE_CLIENT_SECRET,
