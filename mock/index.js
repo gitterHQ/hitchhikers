@@ -101,9 +101,20 @@ app.post('/client/token', function(req, res) {
     code: req.body.code,
   });
   var url = 'https://github.com/login/oauth/access_token?' + query;
+
+  //get an access token
   request.get(url).end(function(err, githubRes) {
     if (err) return res.send(err.code, err.message);
-    res.send(200, githubRes.body.access_token);
+    var userUrl = 'https://api.github.com/user?access_token=' + githubRes.body.access_token;
+
+    //get the user object
+    request.get(userUrl).end(function(err, userRes) {
+      if (err) res.send(err.code, err.message);
+      res.json({
+        access_token: githubRes.body.access_token,
+        user: userRes.body
+      });
+    });
   });
 });
 
