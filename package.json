@@ -22,6 +22,7 @@
     "babel-loader": "^5.3.2",
     "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.3",
+    "body-parser": "^1.14.0",
     "cors": "^2.7.1",
     "css-loader": "^0.18.0",
     "express": "^4.13.3",
@@ -45,6 +46,7 @@
     "webpack": "^1.12.1"
   },
   "dependencies": {
-    "octicons": "^2.4.1"
+    "octicons": "^2.4.1",
+    "superagent": "^1.4.0"
   }
 }

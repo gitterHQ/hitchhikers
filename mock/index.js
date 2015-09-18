@@ -1,9 +1,13 @@
-var http = require('http');
-var express = require('express');
-var cors = require('cors');
-var app = express();
+var http        = require('http');
+var querystring = require('querystring');
+var express     = require('express');
+var cors        = require('cors');
+var bodyParser  = require('body-parser');
+var request     = require('superagent');
+var app         = express();
 
 app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/leaderboards/country', function(req, res) {
   //simulate delay
@@ -84,6 +88,24 @@ app.get('/leaderboards/distance', function(req, res) {
       count: 7534,
     },]);
   }, 250);
+});
+
+app.get('/client/key', function(req, res) {
+  res.send(process.env.UNIVERSE_CLIENT_SECRET);
+});
+
+app.post('/client/token', function(req, res) {
+  console.log(req.body);
+  var query = querystring.stringify({
+    client_id: require('../config/api.js').clientId,
+    client_secret: process.env.UNIVERSE_CLIENT_SECRET,
+    code: req.body.code,
+  });
+  var url = 'https://github.com/login/oauth/access_token?' + query;
+  request.get(url).end(function(err, githubRes) {
+    if (err) return res.send(err.code, err.message);
+    res.send(200, githubRes.body.access_token);
+  });
 });
 
 http.createServer(app).listen(8080);
