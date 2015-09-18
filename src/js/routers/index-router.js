@@ -3,6 +3,7 @@ import querystring              from 'querystring';
 import Backbone                 from 'backbone';
 import clientSecretService      from '../services/client-secret';
 import githubAccessTokenService from '../services/github-access-token';
+import { getPermissions }       from '../services/user-permissions';
 
 export default Backbone.Router.extend({
 
@@ -14,12 +15,21 @@ export default Backbone.Router.extend({
 
   //Index page
   onIndexRoute: function() {
-    require(['../layouts/index-layout'], (IndexLayout) => {
-      var indexLayout = new IndexLayout({
-        el: '[data-component=application]',
+    getPermissions()
+      .then((permissions) => {
+        if (permissions.accessKey) {
+          //logged in
+        }
+        //If we are not logged in show the home page
+        else {
+          require(['../layouts/index-layout'], (IndexLayout) => {
+            var indexLayout = new IndexLayout({
+              el: '[data-component=application]',
+            });
+            indexLayout.render();
+          });
+        }
       });
-      indexLayout.render();
-    });
   },
 
   //Post login view

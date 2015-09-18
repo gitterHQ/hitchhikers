@@ -1,9 +1,6 @@
 import querystring        from 'querystring';
 import request            from 'superagent';
 import { getPermissions, setPermissions } from '../services/user-permissions';
-console.log('-----------------------');
-console.log(getPermissions);
-console.log('-----------------------');
 import apiConfig          from '../../../config/api';
 
 export default function(secret, code) {

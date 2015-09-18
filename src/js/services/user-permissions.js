@@ -8,9 +8,6 @@ export var getPermissions = () => {
       .createDB(dbConfig)
       .then((db) => promiseDB.get(db, 'permissions', 1))
       .then((permissions) => {
-        console.log('-----------------------');
-        console.log(permissions);
-        console.log('-----------------------');
         resolve(permissions);
       })
       .catch((err) => {
