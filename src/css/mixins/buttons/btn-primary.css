@@ -5,16 +5,14 @@ $shadow-hover-offset: .5em;
 $shadow-active-offset: .3em;
 
 @mixin btn-primary() {
-  display:    block;
-
-  padding: .7em 4em;
-
-  border: 1px solid $brand-third;
-  background: $brand-second;
-  color:      $brand-third;
-  box-shadow: $brand-first $shadow-offset $shadow-offset 0;
-
-  transition: all .1s ease-in;
+  display:         block;
+  padding:         .7em 4em;
+  border:          1px solid $brand-third;
+  background:      $brand-second;
+  color:           $brand-third;
+  text-decoration: none;
+  box-shadow:      $brand-first $shadow-offset $shadow-offset 0;
+  transition:      all .1s ease-in;
 
   &:hover {
     cursor:       pointer;
