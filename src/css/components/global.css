@@ -3,6 +3,19 @@ html {
 }
 
 body {
-  font-size: 1.6em;
+  display:    flex;
+  width:      100%;
+  overflow-x: hidden;
   background: $brand-second;
+  font-size:  1.6em;
+
+  transition: transform .2s ease-in-out;
+
+  &.menu-open {
+    transform: translateX(-50%);
+  }
+}
+
+.main {
+  min-width: 100%;
 }

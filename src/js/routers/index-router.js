@@ -30,12 +30,18 @@ export default Backbone.Router.extend({
           } else {
             require([
               '../layouts/settings-layout',
+              '../views/menu-trigger.js',
               '../views/menu-view',
-            ], (SettingsLayout, MenuView) => {
+            ], (SettingsLayout, MenuTriggerView, MenuView) => {
 
               var settingsLayout = new SettingsLayout({
                 el: '[data-component="application"]',
               });
+
+              var menuTrigggerView = new MenuTriggerView({
+                el: '[data-component="menu-trigger"]',
+              });
+              menuTrigggerView.render();
 
               var menuView = new MenuView({
                 el: '[data-component="user-menu"]',
@@ -69,7 +75,9 @@ export default Backbone.Router.extend({
       var loadingView = new LoadingView({
         el: '[data-component=application]',
       });
+
       loadingView.render();
+
       clientSecretService()
         .then((key) => {
           return githubAccessTokenService(key, query.code);

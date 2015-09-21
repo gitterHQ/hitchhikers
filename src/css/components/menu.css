@@ -1,20 +1,79 @@
 @import "../mixins/text/base.css";
-@import "../mixins/text/p.css";
+@import "../mixins/text/h1.css";
 
+.menu-trigger {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: $brand-fourth;
+  font-size: 3rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+/*
 .menu {
-  align-self:   flex-end;
-  margin-top:   -3rem;
-  margin-right: 2rem;
-  font-size:    3rem;
-  color:        $brand-fourth;
+  align-self:     flex-end;
+  display:        flex;
+  flex-direction: column;
+  margin-top:     -3rem;
+  margin-right:   2rem;
+  font-size:      3rem;
+  color:          $brand-fourth;
 }
 
 .menu__trigger {
+  align-self: flex-end;
+
   &:hover {
     cursor: pointer;
   }
 }
 
 .menu__items {
-  display: none;
+  display:        flex;
+  flex-direction: column;
+  margin-bottom:  2rem;
+  max-height:     0;
+  overflow:       hidden;
+  transition:     all .2s ease-in;
+  opacity: 0;
+
+  .active & {
+    max-height: 400px;
+
+  opacity: 1;
+
+  }
 }
+
+.menu__items__profile {
+  width:         5rem;
+  height:        5rem;
+  margin-top:    2rem;
+  border-radius: 100%;
+  align-self:    flex-end;
+}
+
+.menu__items__list {
+  margin-top:     1rem;
+  list-style:     none;
+  display:        flex;
+  flex-direction: column;
+  align-items:    flex-end;
+}
+
+.menu__items__list__link {
+  @include text-base();
+  margin-top:      1rem;
+  font-size:       2.45rem;
+  line-height:     3.45rem;
+  font-weight:     bold;
+  letter-spacing:  .12em;
+  text-decoration: none;
+  color:           $brand-fourth;
+}
+*/

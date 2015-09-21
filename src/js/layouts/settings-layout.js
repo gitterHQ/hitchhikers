@@ -1,14 +1,11 @@
 import Marionette       from 'backbone.marionette';
-import settingTemplate  from '../../templates/settings/layout.hbs';
+import settingsTemplate  from '../../templates/settings/layout.hbs';
 
 export default Marionette.LayoutView.extend({
-  template: settingTemplate,
+  template: settingsTemplate,
 
   regions: {
     menu: '[data-component="user-menu"]',
-  },
-
-  onRender: function() {
   },
 
 });

@@ -6,7 +6,6 @@ import menuItemTemplate from '../../templates/menu/item.hbs';
 
 var MenuItemView = Marionette.ItemView.extend({
   tagName: 'li',
-  className: 'menu__item',
   template: menuItemTemplate,
 });
 
@@ -24,14 +23,30 @@ export default Marionette.CompositeView.extend({
   childViewContainer: '[data-component="menu-list"]',
   childView:          MenuItemView,
 
-  model: new MenuModel(),
+  events: {
+    'click [data-component="menu-trigger"]': 'onMenuTriggerClicked',
+  },
+
+  model: new MenuModel({
+    isActive: false,
+  }),
+
   modelEvents: {
-    'change': 'render',
+    'change:isActive':   'onMenuStateChange',
+    'change:avatar_url': 'render',
   },
 
   collection: new Backbone.Collection([
     { name: 'Settings', url: '#settings' },
     { name: 'Log out',  url: '#log-out'},
   ]),
+
+  onMenuTriggerClicked: function(e) {
+    this.model.set('isActive', !this.model.get('isActive'));
+  },
+
+  onMenuStateChange: function() {
+    this.$el.toggleClass('active', this.model.get('isActive'));
+  },
 
 });
