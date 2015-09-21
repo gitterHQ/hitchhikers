@@ -1,5 +1,5 @@
 @import "../mixins/text/base.css";
-@import "../mixins/text/h1.css";
+@import "../mixins/text/h2.css";
 
 .menu-trigger {
   position: absolute;
@@ -8,11 +8,52 @@
   color: $brand-fourth;
   font-size: 3rem;
 
+  transition: transform .1s ease-in-out;
+
   &:hover {
     cursor: pointer;
   }
+
+  .menu-open & {
+    transform: rotateZ(90deg);
+  }
 }
 
+.menu {
+  position:   fixed;
+  top:        0;
+  left:       50%;
+  height:     100%;
+  width:      50%;
+  overflow:   hidden;
+  background: $menu-background;
+
+  @media(min-width: 780px) {
+    width:      25%;
+    left:       75%;
+  }
+}
+
+.menu__items__profile {
+  width:         5rem;
+  height:        5rem;
+  border-radius: 100%;
+  margin:        1rem 0 0 .5rem;
+}
+
+.menu__items__list {
+  list-style:   none;
+  padding-left: 0;
+  margin-left:  1rem;
+}
+
+.menu__items__list__link {
+  @include text-base();
+  @include h2();
+  text-decoration: none;
+  color:           white;
+  line-height:     1.5em;
+}
 
 /*
 .menu {
