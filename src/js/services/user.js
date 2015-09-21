@@ -1,11 +1,14 @@
 import promiseDB  from 'promise-db';
 import dbConfig   from '../../../config/indexed';
 
+var id = 1;
+
 export var getUser = () => {
+  console.log('getting');
   return new Promise((resolve, reject) => {
     promiseDB
       .createDB(dbConfig)
-      .then((db) => promiseDB.get(db, 'user', 1))
+      .then((db) => promiseDB.get(db, 'user', id))
       .then((user) => {
         resolve(user);
       })
@@ -17,6 +20,7 @@ export var getUser = () => {
 };
 
 export var setUser = (user) => {
+  user.id = id;
   return new Promise((resolve, reject) => {
     promiseDB
      .createDB(dbConfig)

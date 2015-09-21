@@ -1,0 +1,16 @@
+@import "../mixins/text/base.css";
+@import "../mixins/text/p.css";
+
+.profile-image {
+  border-radius: 100%;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu__item__link {
+  @include text-base();
+  @include p();
+  text-decoration: none;
+}

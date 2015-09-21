@@ -10,6 +10,7 @@ var autoprefixer = require('autoprefixer');
 var nested       = require('postcss-nested');
 
 module.exports = {
+  devtool: 'inline-source-map',
   entry: {
     app: path.resolve(__dirname, './src/js/index.js'),
   },

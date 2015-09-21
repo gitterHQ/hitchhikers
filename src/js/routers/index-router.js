@@ -1,16 +1,18 @@
 import url                      from 'url';
 import querystring              from 'querystring';
 import Backbone                 from 'backbone';
+import promiseDB                from 'promise-db';
 import clientSecretService      from '../services/client-secret';
 import githubAccessTokenService from '../services/github-access-token';
 import { getPermissions }       from '../services/user-permissions';
+import dbConfig                 from '../../../config/indexed';
 
 export default Backbone.Router.extend({
 
   routes: {
     '':                 'onIndexRoute',
     'login':            'onRouteLoggedIn',
-    'details':          'onRouterDetailsForm',
+    'log-out':          'onRouteLogOut',
     'error/:errorType': 'onRouteError',
   },
 
@@ -70,6 +72,15 @@ export default Backbone.Router.extend({
           this.navigate(`/error/${err.message}`);
         });
     });
+  },
+
+  onRouteLogOut: function() {
+    promiseDB.createDB(dbConfig)
+      .then((db) => promiseDB.deleteDB(db))
+      .then(() => this.navigate('', { trigger: true }))
+      .catch((err) => {
+        this.navigate(`/error/${err.message}`);
+      });
   },
 
   onRouteError: function(err) {

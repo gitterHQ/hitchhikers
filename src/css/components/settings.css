@@ -12,6 +12,12 @@
   text-align:      center;
 }
 
+.settings-container__menu {
+  @include border-box();
+  @include row();
+  flex-direction: row-reverse;
+}
+
 .settings-container__title {
   @include text-base();
   @include h1();
