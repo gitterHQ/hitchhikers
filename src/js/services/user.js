@@ -4,7 +4,6 @@ import dbConfig   from '../../../config/indexed';
 var id = 1;
 
 export var getUser = () => {
-  console.log('getting');
   return new Promise((resolve, reject) => {
     promiseDB
       .createDB(dbConfig)

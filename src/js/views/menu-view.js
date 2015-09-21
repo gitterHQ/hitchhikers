@@ -11,12 +11,8 @@ var MenuItemView = Marionette.ItemView.extend({
 });
 
 var MenuModel = Backbone.Model.extend({
-  defaults: {
-    avatar_url: 'http://placehold.it/50x50',
-  },
   initialize: function() {
     getUser().then((user) => {
-      console.log(this);
       this.set(user);
     });
   },

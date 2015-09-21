@@ -1,6 +1,5 @@
 import Marionette       from 'backbone.marionette';
 import settingTemplate  from '../../templates/settings/layout.hbs';
-import MenuView         from '../views/menu-view.js';
 
 export default Marionette.LayoutView.extend({
   template: settingTemplate,
@@ -10,8 +9,6 @@ export default Marionette.LayoutView.extend({
   },
 
   onRender: function() {
-    console.log('RENDER');
-    this.menu.show(new MenuView());
   },
 
 });

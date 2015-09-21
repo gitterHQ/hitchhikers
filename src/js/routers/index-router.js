@@ -28,10 +28,19 @@ export default Backbone.Router.extend({
             //if the user has never added their details or permissions direct to the form
             console.log('redirect to main page');
           } else {
-            require(['../layouts/settings-layout'], (SettingsLayout) => {
+            require([
+              '../layouts/settings-layout',
+              '../views/menu-view',
+            ], (SettingsLayout, MenuView) => {
+
               var settingsLayout = new SettingsLayout({
                 el: '[data-component="application"]',
               });
+
+              var menuView = new MenuView({
+                el: '[data-component="user-menu"]',
+              });
+
               settingsLayout.render();
             });
           }
