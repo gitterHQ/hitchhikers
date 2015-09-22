@@ -1,0 +1,5 @@
+neo4j:
+  image: kbastani/docker-neo4j
+  restart: 'always'
+  ports:
+    - "7475:7474"
