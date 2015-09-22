@@ -1,4 +1,5 @@
-import Marionette       from 'backbone.marionette';
+import styles            from '../../css/components/settings.css'
+import Marionette        from 'backbone.marionette';
 import settingsTemplate  from '../../templates/settings/layout.hbs';
 
 export default Marionette.LayoutView.extend({

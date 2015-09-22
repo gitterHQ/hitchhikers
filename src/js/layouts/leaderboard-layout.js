@@ -1,3 +1,4 @@
+import styles               from '../../css/components/leaderboard.css';
 import Backbone             from 'backbone';
 import Marionette           from 'backbone.marionette';
 import leaderBoardsTemplate from '../../templates/leaderboard/layout.hbs';

@@ -1,3 +1,4 @@
+import styles           from '../../css/components/menu.css';
 import Backbone         from 'backbone';
 import Marionette       from 'backbone.marionette';
 import { getUser }      from '../services/user.js';

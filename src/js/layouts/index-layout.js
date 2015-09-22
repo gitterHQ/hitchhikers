@@ -1,6 +1,7 @@
-import Marionette from 'backbone.marionette';
-import layoutTemplate from '../../templates/index/layout.hbs';
-import LeadboardLayout from './leaderboard-layout';
+import styles           from '../../css/components/index-layout.css';
+import Marionette       from 'backbone.marionette';
+import layoutTemplate   from '../../templates/index/layout.hbs';
+import LeadboardLayout  from './leaderboard-layout';
 
 export default Marionette.LayoutView.extend({
 
