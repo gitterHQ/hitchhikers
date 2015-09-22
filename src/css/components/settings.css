@@ -2,6 +2,8 @@
 @import "../mixins/grid/row.css";
 @import "../mixins/text/base.css";
 @import "../mixins/text/h1.css";
+@import "../mixins/text/h2.css";
+@import "../mixins/buttons/btn-primary.css";
 
 .settings-container {
   @include border-box();
@@ -18,7 +20,30 @@
   flex-direction: row-reverse;
 }
 
-.settings-container__title {
+.settings-container__detail {
+  @include text-base();
+  @include h2();
+}
+
+
+.settings-container__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-container__form__title {
   @include text-base();
   @include h1();
+  margin-bottom: 6.5rem;
+}
+
+.settings-container__form__label {
+  @include text-base();
+  @include h2();
+}
+
+.setting-container__form__submit {
+  @include text-base();
+  @include btn-primary();
+  align-self: center;
 }

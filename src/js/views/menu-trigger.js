@@ -5,6 +5,10 @@ import menuTriggerTemplate from '../../templates/menu/trigger.hbs';
 
 export default Marionette.ItemView.extend({
   template: menuTriggerTemplate,
+
+  //TODO this should be a application singleton
+  //this way the router could require it and change its state
+  //rather than calling the component directly
   model: new Backbone.Model({ active: false }),
   events: {
     'click': 'onMenuTriggerClicked',
