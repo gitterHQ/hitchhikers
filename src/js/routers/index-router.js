@@ -13,6 +13,7 @@ export default Backbone.Router.extend({
     '':                 'onIndexRoute',
     'login':            'onRouteLoggedIn',
     'log-out':          'onRouteLogOut',
+    'settings':         'onRouteSettings',
     'error/:errorType': 'onRouteError',
   },
 
@@ -28,32 +29,19 @@ export default Backbone.Router.extend({
             //if the user has never added their details or permissions direct to the form
             console.log('redirect to main page');
           } else {
-            require([
-              '../layouts/settings-layout',
-              '../views/menu-trigger.js',
-              '../views/menu-view',
-            ], (SettingsLayout, MenuTriggerView, MenuView) => {
-
-              var settingsLayout = new SettingsLayout({
-                el: '[data-component="application"]',
-              });
-
-              var menuTrigggerView = new MenuTriggerView({
-                el: '[data-component="menu-trigger"]',
-              });
-              menuTrigggerView.render();
-
-              var menuView = new MenuView({
-                el: '[data-component="user-menu"]',
-              });
-
-              settingsLayout.render();
-            });
+            this.onRouteSettings();
           }
         }
 
         //If we are not logged in show the home page
         else {
+
+          //close and hide the menu view
+          if (this.menuTriggerView) {
+            this.menuTriggerView.close();
+            this.menuTriggerView.hide();
+          }
+
           require(['../layouts/index-layout'], (IndexLayout) => {
             var indexLayout = new IndexLayout({
               el: '[data-component=application]',
@@ -98,6 +86,43 @@ export default Backbone.Router.extend({
       .catch((err) => {
         this.navigate(`/error/${err.message}`);
       });
+  },
+
+  onRouteSettings: function() {
+    require([
+        '../layouts/settings-layout',
+        '../views/menu-trigger.js',
+        '../views/menu-view',
+    ], (SettingsLayout, MenuTriggerView, MenuView) => {
+
+      //settings layout
+      var settingsLayout = new SettingsLayout({
+        el: '[data-component="application"]',
+      });
+      settingsLayout.render();
+
+      //If we don't already have a menu trigger view make one
+
+      console.log('new menu trigger', this.menuTriggerView);
+      if (!this.menuTriggerView) {
+        console.log('making view', this);
+        this.menuTriggerView = new MenuTriggerView({
+          el: '[data-component="menu-trigger"]',
+        });
+        this.menuTriggerView.render();
+      } else {
+        console.log('CLOSE');
+        this.menuTriggerView.close();
+      }
+
+      //if we don't already have a menu view make one
+      if (!this.menuView) {
+        this.menuView = new MenuView({
+          el: '[data-component="user-menu"]',
+        });
+      }
+
+    });
   },
 
   onRouteError: function(err) {

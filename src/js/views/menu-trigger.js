@@ -10,14 +10,30 @@ export default Marionette.ItemView.extend({
     'click': 'onMenuTriggerClicked',
   },
   modelEvents: {
-    'change:active': 'onModelUpdate',
+    'change:active': 'onModelActiveUpdate',
+    'change:hidden': 'onModelHiddenUpdate',
   },
 
   onMenuTriggerClicked: function() {
-    this.model.set('active', !this.model.get('active'));
+    this.model.set({
+      active: !this.model.get('active'),
+      hidden: false,
+    });
   },
 
-  onModelUpdate: function() {
+  onModelActiveUpdate: function() {
     $('body').toggleClass('menu-open', this.model.get('active'));
+  },
+
+  onModelHiddenUpdate: function() {
+    this.$el.toggleClass('hidden', this.model.get('hidden'));
+  },
+
+  close: function() {
+    this.model.set('active', false);
+  },
+
+  hide: function() {
+    this.model.set('hidden', true);
   },
 });
