@@ -28,6 +28,10 @@ body {
   }
 }
 
+.application-container {
+  background: $brand-second;
+}
+
 .hidden {
   display: none;
 }

@@ -1,0 +1,6 @@
+@mixin anchor() {
+  transition: color .3s ease-in;
+  &:hover {
+    color: $brand-fifth;
+  }
+}

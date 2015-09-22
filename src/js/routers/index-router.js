@@ -102,16 +102,12 @@ export default Backbone.Router.extend({
       settingsLayout.render();
 
       //If we don't already have a menu trigger view make one
-
-      console.log('new menu trigger', this.menuTriggerView);
       if (!this.menuTriggerView) {
-        console.log('making view', this);
         this.menuTriggerView = new MenuTriggerView({
           el: '[data-component="menu-trigger"]',
         });
         this.menuTriggerView.render();
       } else {
-        console.log('CLOSE');
         this.menuTriggerView.close();
       }
 

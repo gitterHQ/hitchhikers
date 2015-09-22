@@ -4,14 +4,15 @@
 @import "../mixins/text/h1.css";
 @import "../mixins/text/h2.css";
 @import "../mixins/buttons/btn-primary.css";
-
+@import "../mixins/text/anchor-reset.css";
+@import "../mixins/text/anchor.css";
 .settings-container {
   @include border-box();
   @include row();
-  flex-direction:  column;
+  flex-direction: column;
   justify-content: center;
-  padding-top:     8rem;
-  text-align:      center;
+  padding: 8rem 1rem;
+  text-align: center;
 }
 
 .settings-container__menu {
@@ -25,6 +26,10 @@
   @include h2();
 }
 
+.settings-container__detail__link {
+  @include anchor-reset();
+  @include anchor();
+}
 
 .settings-container__form {
   display: flex;
@@ -40,10 +45,12 @@
 .settings-container__form__label {
   @include text-base();
   @include h2();
+  margin-bottom: 4.5rem;
 }
 
 .setting-container__form__submit {
   @include text-base();
   @include btn-primary();
   align-self: center;
+  margin: 4.5rem 0;
 }
