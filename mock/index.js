@@ -1,11 +1,6 @@
-var http = require('http');
-var express = require('express');
-var cors = require('cors');
-var app = express();
+var router = require('express').Router();
 
-app.use(cors());
-
-app.get('/leaderboards/country', function(req, res) {
+router.get('/country', function(req, res) {
   //simulate delay
   setTimeout(function() {
     res.json([{
@@ -32,7 +27,7 @@ app.get('/leaderboards/country', function(req, res) {
   }, 300);
 });
 
-app.get('/leaderboards/users', function(req, res) {
+router.get('/users', function(req, res) {
   //simulate delay
   setTimeout(function() {
     res.json([{
@@ -59,7 +54,7 @@ app.get('/leaderboards/users', function(req, res) {
   }, 350);
 });
 
-app.get('/leaderboards/distance', function(req, res) {
+router.get('/distance', function(req, res) {
   //simulate delay
   setTimeout(function() {
     res.json([{
@@ -86,4 +81,4 @@ app.get('/leaderboards/distance', function(req, res) {
   }, 250);
 });
 
-http.createServer(app).listen(8080);
+module.exports = router;

@@ -2,18 +2,17 @@ import Backbone             from 'backbone';
 import Marionette           from 'backbone.marionette';
 import leaderBoardsTemplate from '../../templates/leaderboard/layout.hbs';
 import LeaderBoardView      from '../views/leaderboard-view';
-import apiConfig            from '../../../config/api';
 
 var CountryCollection = Backbone.Collection.extend({
-  url: apiConfig.baseURL + apiConfig.leaderboardCountry,
+  url: '/leaderboards/country',
 });
 
 var DistanceCollection = Backbone.Collection.extend({
-  url: apiConfig.baseURL + apiConfig.leaderboardDistance,
+  url: '/leaderboards/distance',
 });
 
 var UsersCollection = Backbone.Collection.extend({
-  url: apiConfig.baseURL + apiConfig.leaderboardUsers,
+  url: '/leaderboards/users',
 });
 
 export default Marionette.LayoutView.extend({
