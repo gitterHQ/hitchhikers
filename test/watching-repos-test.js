@@ -7,7 +7,7 @@ describe('watching-repos', function() {
   it('should return a stream of repos the current user watches', function(done) {
     var count = 0;
 
-    watchingReposStream(null, process.env.GITHUB_ACCESS_TOKEN)
+    watchingReposStream('lerouxb')
       .on('data', function() {
         count++;
       })

@@ -7,7 +7,7 @@ describe('starred-repos', function() {
   it('should return a stream of repos the current user has followed', function(done) {
     var count = 0;
 
-    starredReposStream(null, process.env.GITHUB_ACCESS_TOKEN)
+    starredReposStream('lerouxb')
       .on('data', function() {
         count++;
       })

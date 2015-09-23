@@ -7,7 +7,7 @@ describe('following-users', function() {
   it('should return a stream of users the current user follows', function(done) {
     var count = 0;
 
-    followingUsersStream(null, process.env.GITHUB_ACCESS_TOKEN)
+    followingUsersStream('lerouxb')
       .on('data', function() {
         count++;
       })
