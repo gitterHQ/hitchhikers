@@ -19,12 +19,24 @@ app.use(cors());
 
 app.use('/github', require('./lib/routes/github'));
 app.use('/user', authuser, require('./lib/routes/user'));
+app.use('/users', require('./lib/routes/users'));
 app.use('/private', require('./lib/routes/private'));
 app.use('/leaderboards', require('./mock/index'));
+
+app.use(function(err, req, res, next) {
+  if (err.status == 301) {
+    return res.redirect(err.location);
+  }
+  next();
+});
 
 
 app.get('/', function(req, res){
   res.sendFile('./index.html', {root: __dirname});
+});
+
+process.on('uncaughtException', function(err) {
+  console.error(err);
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
