@@ -5,6 +5,12 @@ import IndexRouter from './routers/index-router';
 
 var router = new IndexRouter();
 
-Backbone.history.start({
-  pushState: true,
+/*
+window.addEventListener('error', (e) => {
+  e.preventDefault();
+  router.navigate(`/error/${e.message}`);
+  return false;
 });
+*/
+
+Backbone.history.start();

@@ -1,0 +1,24 @@
+@import "../mixins/utils/border-box.css";
+@import "../mixins/grid/row.css";
+@import "../mixins/text/base.css";
+@import "../mixins/text/h1.css";
+
+.settings-container {
+  @include border-box();
+  @include row();
+  flex-direction:  column;
+  justify-content: center;
+  padding-top:     8rem;
+  text-align:      center;
+}
+
+.settings-container__menu {
+  @include border-box();
+  @include row();
+  flex-direction: row-reverse;
+}
+
+.settings-container__title {
+  @include text-base();
+  @include h1();
+}

@@ -1,8 +1,33 @@
 html {
   font-size: 62.5%;
+  height:    100%;
 }
 
 body {
-  font-size: 1.6em;
+  width:      100%;
+  height:     100%;
   background: $brand-second;
+  font-size:  1.6em;
+}
+
+.main {
+  position:   relative;
+  min-width:  100%;
+  height:     100%;
+  background: $brand-second;
+  z-index:    10;
+
+  transition: transform .2s ease-in-out .1s;
+
+  .menu-open & {
+    transform: translateX(-50%);
+
+    @media(min-width: 780px) {
+      transform: translateX(-25%);
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }

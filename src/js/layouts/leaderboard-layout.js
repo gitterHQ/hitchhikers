@@ -18,10 +18,10 @@ var UsersCollection = Backbone.Collection.extend({
 export default Marionette.LayoutView.extend({
   template: leaderBoardsTemplate,
 
-  regions: {
-    distance: '[data-component="distance-travelled"]',
+  regions:     {
+    distance:  '[data-component="distance-travelled"]',
     locations: '[data-component="locations"]',
-    members: '[data-component="members"]',
+    members:   '[data-component="members"]',
   },
 
   onRender: function() {
