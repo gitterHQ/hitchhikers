@@ -21,6 +21,10 @@ $third-delay:  calc($first-delay * 3);
   @include border-box();
   text-align:  center;
   padding-top: 8rem;
+
+  @media(max-width: 780px) {
+    padding-top: 3rem;
+  }
 }
 
 .loading-heading__title {
@@ -38,6 +42,10 @@ $third-delay:  calc($first-delay * 3);
   flex-direction:  row;
   align-items:     center;
   justify-content: center;
+
+  @media(max-width: 780px) {
+    min-height:      20rem;
+  }
 }
 
 .loader {

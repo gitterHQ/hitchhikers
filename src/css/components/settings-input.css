@@ -21,9 +21,10 @@
 
 .settings-input__wrapper {
   position: relative;
-  height:       3rem;
-  width:        30rem;
-  margin-right: 5rem;
+  height:       5rem;
+  width:        35rem;
+  max-width:    100%;
+  margin-right: 2rem;
 
   @media (max-width: 780px) {
     margin: auto;
@@ -33,13 +34,14 @@
 .settings-input__wrapper__icon {
   position:  absolute;
   top:       1.25rem;
-  right:     -3rem;
+  right:     1rem;
   font-size: 2.5rem;
   color:     $brand-second;
 }
 
 .settings-input__wrapper__input {
 
+  @include border-box();
   @include text-base();
   @include h1();
 
