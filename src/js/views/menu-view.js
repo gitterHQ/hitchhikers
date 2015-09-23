@@ -13,6 +13,7 @@ var MenuItemView = Marionette.ItemView.extend({
 var MenuModel = Backbone.Model.extend({
   initialize: function() {
     getUser().then((user) => {
+      console.log('user', user);
       this.set(user);
     });
   },
@@ -28,26 +29,15 @@ export default Marionette.CompositeView.extend({
     'click [data-component="menu-trigger"]': 'onMenuTriggerClicked',
   },
 
-  model: new MenuModel({
-    isActive: false,
-  }),
+  model: new MenuModel(),
 
   modelEvents: {
-    'change:isActive':   'onMenuStateChange',
-    'change:avatar_url': 'render',
+    'change:login':    'render',
   },
 
   collection: new Backbone.Collection([
     { name: 'Settings', url: '#settings' },
     { name: 'Log out',  url: '#log-out'},
   ]),
-
-  onMenuTriggerClicked: function(e) {
-    this.model.set('isActive', !this.model.get('isActive'));
-  },
-
-  onMenuStateChange: function() {
-    this.$el.toggleClass('active', this.model.get('isActive'));
-  },
 
 });

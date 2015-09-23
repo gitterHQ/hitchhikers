@@ -6,6 +6,7 @@ import clientSecretService      from '../services/client-secret';
 import githubAccessTokenService from '../services/github-access-token';
 import { getPermissions }       from '../services/user-permissions';
 import dbConfig                 from '../../../config/indexed';
+import { getUser, getUserFromAPI }              from '../services/user';
 
 export default Backbone.Router.extend({
 
@@ -20,13 +21,13 @@ export default Backbone.Router.extend({
 
   //Index page
   onIndexRoute: function() {
-    getPermissions()
-      .then((permissions) => {
+    getUser()
+      .then((user) => {
         //if we already have an access key don't show the index page
         //as the user is already logged in
-        if (permissions.accessKey) {
+        if (user) {
           //TODO this needs to be persisted on the server
-          if (permissions.hasCompletedForm) {
+          if (user.hasCompletedForm) {
             //if the user has never added their details or permissions direct to the form
             console.log('redirect to main page');
           } else {
@@ -47,6 +48,12 @@ export default Backbone.Router.extend({
             var indexLayout = new IndexLayout({
               el: '[data-component=application]',
             });
+
+            this.listenTo(indexLayout, 'login:clicked', () => {
+              this.stopListening(indexLayout, 'login:clicked');
+              this.navigate('loading', { trigger: true });
+            });
+
             indexLayout.render();
           });
         }
@@ -55,29 +62,9 @@ export default Backbone.Router.extend({
 
   //Post login view
   onRouteLoggedIn: function() {
-
-    var parsedUrl = url.parse(window.location.href);
-    var query     = querystring.parse(parsedUrl.query);
-    if (!query || !query.code) return this.navigate('/error/no-code-returned-from-github');
-
-    require(['../views/loading-view.js'], (LoadingView) => {
-      var loadingView = new LoadingView({
-        el: '[data-component=application]',
-      });
-
-      loadingView.render();
-
-      clientSecretService()
-        .then((key) => {
-          return githubAccessTokenService(key, query.code);
-        })
-        .then(() => {
-          this.navigate('', { trigger: true });
-        })
-        .catch((err) => {
-          this.navigate(`/error/${err.message}`);
-        });
-    });
+    getUserFromAPI()
+      .then((user) => this.navigate('', { trigger: true }))
+      .catch((err) => this.navigate(`/error/${err.message}`));
   },
 
   onRouteLogOut: function() {
@@ -104,6 +91,7 @@ export default Backbone.Router.extend({
 
       //If we don't already have a menu trigger view make one
       if (!this.menuTriggerView) {
+        console.log('making new menun view');
         this.menuTriggerView = new MenuTriggerView({
           el: '[data-component="menu-trigger"]',
         });

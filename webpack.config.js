@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var mixins       = require('postcss-sassy-mixins');
@@ -49,6 +50,9 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    new webpack.ProvidePlugin({
+      'jQuery': 'jquery',
+    })
   ],
   resolve: {
     alias: {

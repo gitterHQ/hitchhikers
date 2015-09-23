@@ -1,5 +1,6 @@
 import promiseDB  from 'promise-db';
 import dbConfig   from '../../../config/indexed';
+import request    from 'superagent';
 
 var id = 1;
 
@@ -11,9 +12,26 @@ export var getUser = () => {
       .then((user) => {
         resolve(user);
       })
+
+      //if we fail here we have no user object
       .catch((err) => {
-        resolve({});
+        resolve(null);
       });
+  });
+};
+
+export var getUserFromAPI = () => {
+  return new Promise((resolve, reject) => {
+    request.get('/user').end((err, res) => {
+      var user = res.body;
+      user.id = id;
+
+      //resolve with the user
+      resolve(user);
+
+      //save the user into the local db
+      setUser(user);
+    });
 
   });
 };

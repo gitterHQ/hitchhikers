@@ -7,6 +7,10 @@ export default Marionette.LayoutView.extend({
 
   template: layoutTemplate,
 
+  events: {
+    'click [data-component=login]': 'onLoginClicked'
+  },
+
   regions: {
     map:          '[data-component="index-layout-map"]',
     leaderBoards: '[data-component="index-layout-leaderboard"]',
@@ -14,5 +18,9 @@ export default Marionette.LayoutView.extend({
 
   onRender: function() {
     this.leaderBoards.show(new LeadboardLayout());
+  },
+
+  onLoginClicked: function (){
+    this.trigger('login:clicked');
   },
 });
