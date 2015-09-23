@@ -11,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,300">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="node_modules/octicons/octicons/octicons.css">
-  <link re>
 </head>
 
 <body>
@@ -37,9 +36,24 @@
       </h4>
     </footer>
 
+    <button class="js-gitter-toggle-chat-button sidecar-button">Sidecar &#187;</button>
+
   </article>
+
+  <!-- MENU  -->
   <div class="menu" data-component="user-menu"></div>
+
+  <!-- APP  -->
   <script src="/build/app.js"></script>
+
+  <!-- SIDECARD  -->
+  <script>
+  ((window.gitter = {}).chat = {}).options = {
+      room: 'Pier70/chat',
+      activationElement: '.js-gitter-toggle-chat-button'
+    };
+  </script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v0.js" async defer></script>
 </body>
 
 </html>
