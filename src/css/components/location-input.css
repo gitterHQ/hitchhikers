@@ -1,0 +1,30 @@
+@import "../mixins/text/base.css";
+@import "../mixins/text/h2.css";
+
+$shadow-offset: .3em;
+$shadow-hover-offset: .5em;
+$shadow-active-offset: .3em;
+
+.pac-container {
+  background: $brand-first;
+  border-top: none;
+}
+
+.pac-item {
+  background: $brand-first;
+  border: none;
+  padding: .5rem;
+
+  &:hover {
+    background: $brand-second;
+  }
+}
+
+.pac-item-selected {
+  background: $brand-second;
+}
+
+.pac-item-query {
+  @include text-base();
+  @include h2();
+}

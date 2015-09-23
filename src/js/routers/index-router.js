@@ -91,7 +91,6 @@ export default Backbone.Router.extend({
 
       //If we don't already have a menu trigger view make one
       if (!this.menuTriggerView) {
-        console.log('making new menun view');
         this.menuTriggerView = new MenuTriggerView({
           el: '[data-component="menu-trigger"]',
         });
