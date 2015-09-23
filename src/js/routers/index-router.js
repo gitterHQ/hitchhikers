@@ -48,6 +48,12 @@ export default Backbone.Router.extend({
             var indexLayout = new IndexLayout({
               el: '[data-component=application]',
             });
+
+            this.listenTo(indexLayout, 'login:clicked', () => {
+              this.stopListening(indexLayout, 'login:clicked');
+              this.navigate('loading', { trigger: true });
+            });
+
             indexLayout.render();
           });
         }
