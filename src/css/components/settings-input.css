@@ -23,7 +23,7 @@
   position: relative;
   height:       3rem;
   width:        30rem;
-  margin-right: .5rem;
+  margin-right: 5rem;
 
   @media (max-width: 780px) {
     margin: auto;
@@ -32,21 +32,20 @@
 
 .settings-input__wrapper__icon {
   position:  absolute;
-  top:       .3rem;
-  right:     .7rem;
+  top:       1.25rem;
+  right:     -3rem;
   font-size: 2.5rem;
   color:     $brand-second;
 }
 
 .settings-input__wrapper__input {
 
-  @include border-box();
   @include text-base();
   @include h1();
 
   height:       100%;
   width:        100%;
-  padding:      .5rem 2rem;
+  padding:      1rem 2rem;
   background:   $brand-first;
   font-size:    2rem;
   border:       none;
@@ -56,12 +55,10 @@
 
 .settings-input__checkbox-container {
 
-  @include border-box();
-
   display:    inline-block;
   width:      11rem;
   height:     3rem;
-  padding:     .5rem;
+  padding:     1rem;
   background: $brand-first;
   overflow:   hidden;
 
@@ -81,6 +78,7 @@
   position:   relative;
   width:      2rem;
   height:     2rem;
+  margin-top: .5rem;
   background: $brand-second;
   font-size:  2rem;
   transition: transform .2s ease-in-out;

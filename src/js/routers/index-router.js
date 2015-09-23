@@ -14,6 +14,7 @@ export default Backbone.Router.extend({
     'login':            'onRouteLoggedIn',
     'log-out':          'onRouteLogOut',
     'settings':         'onRouteSettings',
+    'loading':          'onRouteLoading',
     'error/:errorType': 'onRouteError',
   },
 
@@ -118,6 +119,15 @@ export default Backbone.Router.extend({
         });
       }
 
+    });
+  },
+
+  onRouteLoading: function() {
+    require(['../views/loading-view.js'], (LoadingView) => {
+      var loadingView = new LoadingView({
+        el: '[data-component=application]',
+      });
+      loadingView.render();
     });
   },
 

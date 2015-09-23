@@ -17,6 +17,10 @@ export default Marionette.LayoutView.extend({
     email:      '[data-component="user-email-input"]',
   },
 
+  events: {
+    'submit': 'onFormSubmit',
+  },
+
   onRender: function() {
     this.location.show(new SettginsInputView({
       model: locationModel,
@@ -30,6 +34,11 @@ export default Marionette.LayoutView.extend({
       model: emailModel,
     }));
 
+  },
+
+  onFormSubmit: function(e) {
+    e.preventDefault();
+    console.log('submit', e);
   },
 
 });
