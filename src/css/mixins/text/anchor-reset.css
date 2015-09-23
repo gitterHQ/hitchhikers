@@ -1,4 +1,4 @@
 @mixin anchor-reset() {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
 }

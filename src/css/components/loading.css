@@ -1,0 +1,114 @@
+@import "../mixins/utils/border-box.css";
+@import "../mixins/text/base.css";
+@import "../mixins/text/h1.css";
+
+$anim-time:    2;
+$first-delay:  calc(2 / 4);
+$second-delay: calc($first-delay * 2);
+$third-delay:  calc($first-delay * 3);
+
+@mixin base-loader-icon() {
+  content:    '';
+  background: $loader-background;
+  display:    inline-block;
+  position:   absolute;
+  width:      .7rem;
+  height:     8rem;
+  animation:  scale $(anim-time)s infinite ease-in-out;
+}
+
+.loading-header {
+  @include border-box();
+  text-align:  center;
+  padding-top: 8rem;
+
+  @media(max-width: 780px) {
+    padding-top: 3rem;
+  }
+}
+
+.loading-heading__title {
+  @include text-base();
+  @include h1();
+  &:after {
+    content: '...';
+  }
+}
+
+.loader-container {
+  width:           100%;
+  min-height:      40rem;
+  display:         flex;
+  flex-direction:  row;
+  align-items:     center;
+  justify-content: center;
+
+  @media(max-width: 780px) {
+    min-height:      20rem;
+  }
+}
+
+.loader {
+  width:  7.5rem;
+  height: 10rem;
+}
+
+.loader__left,
+.loader__right {
+  position: relative;
+}
+
+.loader__left:before {
+  @include base-loader-icon();
+  top: 0;
+  left: 0;
+  height: 40px;
+}
+
+.loader__left:after {
+  @include base-loader-icon();
+  top: 15px;
+  left: 20px;
+  animation-delay: $(first-delay)s;
+}
+
+.loader__right:before {
+  @include base-loader-icon();
+  top: 15px;
+  left: 40px;
+  animation-delay: $(second-delay)s;
+}
+
+.loader__right:after {
+  @include base-loader-icon();
+  top: 15px;
+  left: 60px;
+  height: 40px;
+  animation-delay: $(third-delay)s;
+}
+
+@keyframes scale {
+  0%,
+  80,
+  100% {
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(1.5);
+  }
+}
+
+@keyframes ellipsis {
+  0% {
+    content: '';
+  }
+  33% {
+    content: '.';
+  }
+  66% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}

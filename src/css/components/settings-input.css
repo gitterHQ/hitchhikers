@@ -1,0 +1,119 @@
+@import "../mixins/utils/border-box.css";
+@import "../mixins/text/base.css";
+@import "../mixins/text/h1.css";
+
+.settings-input {
+
+  display:         flex;
+  flex-direction:  row;
+  align-content:   center;
+  justify-content: center;
+  margin-bottom:   2rem;
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+    align-content:  center;
+  }
+
+}
+
+
+
+.settings-input__wrapper {
+  position: relative;
+  height:       5rem;
+  width:        35rem;
+  max-width:    100%;
+  margin-right: 2rem;
+
+  @media (max-width: 780px) {
+    margin: auto;
+  }
+}
+
+.settings-input__wrapper__icon {
+  position:  absolute;
+  top:       1.25rem;
+  right:     1rem;
+  font-size: 2.5rem;
+  color:     $brand-second;
+}
+
+.settings-input__wrapper__input {
+
+  @include border-box();
+  @include text-base();
+  @include h1();
+
+  height:       100%;
+  width:        100%;
+  padding:      1rem 2rem;
+  background:   $brand-first;
+  font-size:    2rem;
+  border:       none;
+  outline:      none;
+
+}
+
+.settings-input__checkbox-container {
+
+  display:    inline-block;
+  width:      11rem;
+  height:     3rem;
+  padding:     1rem;
+  background: $brand-first;
+  overflow:   hidden;
+
+  @media (max-width: 780px) {
+    margin: auto;
+    margin-top: 2rem;
+  }
+
+}
+
+.settings-input__checkbox-container__track {
+
+  @include text-base();
+  @include h1();
+
+  display:    inline-block;
+  position:   relative;
+  width:      2rem;
+  height:     2rem;
+  margin-top: .5rem;
+  background: $brand-second;
+  font-size:  2rem;
+  transition: transform .2s ease-in-out;
+  transform:  translateX(200%);
+
+  &:before {
+
+    content:  'Yes';
+    position: absolute;
+    top:      -.2rem;
+    left:     -7rem;
+    color:    #4A8B7D;
+
+  }
+
+  &:after {
+
+    content:  'No';
+    position: absolute;
+    top:      -.2rem;
+    right:    -7rem;
+    color:    #9A9656
+
+  }
+}
+
+.settings-input__checkbox-container__checkbox {
+
+  display: none;
+
+  &:checked + span {
+
+    transform: translateX(-200%);
+
+  }
+}

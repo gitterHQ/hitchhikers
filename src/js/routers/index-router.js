@@ -14,6 +14,7 @@ export default Backbone.Router.extend({
     'login':            'onRouteLoggedIn',
     'log-out':          'onRouteLogOut',
     'settings':         'onRouteSettings',
+    'loading':          'onRouteLoading',
     'error/:errorType': 'onRouteError',
   },
 
@@ -102,16 +103,12 @@ export default Backbone.Router.extend({
       settingsLayout.render();
 
       //If we don't already have a menu trigger view make one
-
-      console.log('new menu trigger', this.menuTriggerView);
       if (!this.menuTriggerView) {
-        console.log('making view', this);
         this.menuTriggerView = new MenuTriggerView({
           el: '[data-component="menu-trigger"]',
         });
         this.menuTriggerView.render();
       } else {
-        console.log('CLOSE');
         this.menuTriggerView.close();
       }
 
@@ -122,6 +119,15 @@ export default Backbone.Router.extend({
         });
       }
 
+    });
+  },
+
+  onRouteLoading: function() {
+    require(['../views/loading-view.js'], (LoadingView) => {
+      var loadingView = new LoadingView({
+        el: '[data-component=application]',
+      });
+      loadingView.render();
     });
   },
 

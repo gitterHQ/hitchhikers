@@ -2,7 +2,3 @@
 @import "./components/global";
 @import "./components/header";
 @import "./components/footer";
-@import "./components/index-layout";
-@import "./components/leaderboard";
-@import "./components/settings";
-@import "./components/menu";

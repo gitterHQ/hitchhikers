@@ -1,3 +1,6 @@
+@import "../mixins/buttons/btn-primary.css";
+@import "../mixins/text/base.css";
+
 html {
   font-size: 62.5%;
   height:    100%;
@@ -25,6 +28,24 @@ body {
     @media(min-width: 780px) {
       transform: translateX(-25%);
     }
+  }
+}
+
+.application-container {
+  background: $brand-second;
+}
+
+.sidecar-button {
+
+  @include text-base();
+  @include btn-primary();
+
+  position: fixed;
+  top:      25%;
+  left:    -1px;
+
+  @media(max-width: 780px) {
+    top: 90%;
   }
 }
 

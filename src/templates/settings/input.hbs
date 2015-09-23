@@ -1,0 +1,29 @@
+<div class="settings-input">
+
+  <!-- Input  -->
+  <div class="settings-input__wrapper">
+    <input  class="settings-input__wrapper__input"
+            {{#if disabled}}disabled="true"{{/if}}
+            type="{{type}}"
+            name="{{name}}"
+            id={{name}}
+            placeholder="{{placeholder}}"/>
+
+    <span class="settings-input__wrapper__icon  octicon octicon-{{icon}}"></span>
+  </div>
+
+  <!-- Checkbox -->
+  <label class="settings-input__checkbox-container" for="{{name}}-private">
+
+    <!-- Hidden input -->
+    <input class="settings-input__checkbox-container__checkbox"
+          {{#if private}}  checked="true"  {{/if}}
+          type="checkbox"
+          name="{{name}}-private"
+          id="{{name}}-private"/>
+
+    <!-- Sliding input  -->
+    <span class="settings-input__checkbox-container__track"></span>
+
+  </label>
+</div>
