@@ -1,3 +1,4 @@
+#!/bin/bash
 git checkout -b deploy-`date +"%F-%H_%M_%S"`
 npm run build
 rm -rf .gitignore
