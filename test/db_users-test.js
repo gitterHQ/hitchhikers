@@ -12,7 +12,8 @@ var attrs = {
 
 describe('blank database', function() {
   beforeEach(function() {
-    return cypher.flushDB(neo4jClient);
+    //return cypher.flushDB(neo4jClient);
+    return users.destroy('lerouxb');
   });
 
   it('should add a new user', function() {
@@ -44,9 +45,15 @@ describe('blank database', function() {
 
 describe('populated database', function() {
   beforeEach(function() {
+    /*
     return cypher.flushDB(neo4jClient).then(function() {
       return users.create(attrs);
     });
+    */
+    return users.destroy('lerouxb')
+      .then(function() {
+        return users.create(attrs);
+      });
   });
 
   it('should merge when adding a user that already exists', function() {
