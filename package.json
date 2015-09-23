@@ -44,6 +44,7 @@
     "postcss-nested": "^1.0.0",
     "postcss-sassy-mixins": "^1.0.0",
     "postcss-simple-vars": "1.0.0",
+    "promise-db": "git+ssh://git@github.com/gitterHQ/promiseDB.git",
     "style-loader": "^0.12.3",
     "webpack": "^1.12.1"
   },
