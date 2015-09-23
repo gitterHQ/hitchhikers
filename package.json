@@ -30,6 +30,7 @@
     "css-loader": "^0.18.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
+    "geocomplete": "git+https://github.com/ubilabs/geocomplete.git",
     "handlebars": "^4.0.2",
     "handlebars-loader": "^1.1.4",
     "jquery": "^2.1.4",

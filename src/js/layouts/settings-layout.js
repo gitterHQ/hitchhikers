@@ -1,7 +1,8 @@
 import styles            from '../../css/components/settings.css';
 import Marionette        from 'backbone.marionette';
+import geocomplete       from 'geocomplete';
 import settingsTemplate  from '../../templates/settings/layout.hbs';
-import SettginsInputView from '../views/setting-input-view';
+import SettingsInputView from '../views/setting-input-view';
 import {
   locationModel,
   attendanceModel,
@@ -22,15 +23,18 @@ export default Marionette.LayoutView.extend({
   },
 
   onRender: function() {
-    this.location.show(new SettginsInputView({
+    this.location.show(new SettingsInputView({
       model: locationModel,
+      initialize: function(){
+        console.log('this is working');
+      }
     }));
 
-    this.attendance.show(new SettginsInputView({
+    this.attendance.show(new SettingsInputView({
       model: attendanceModel,
     }));
 
-    this.email.show(new SettginsInputView({
+    this.email.show(new SettingsInputView({
       model: emailModel,
     }));
 
