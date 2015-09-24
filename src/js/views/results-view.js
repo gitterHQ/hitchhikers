@@ -7,6 +7,7 @@ var ResultsCollection = Backbone.Collection.extend({
   model: Backbone.Model.extend({
     initialize: function(attrs) {
       this.set('username', attrs.login);
+      this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
     },
   }),
 });
