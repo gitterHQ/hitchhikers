@@ -1,16 +1,16 @@
 import styles            from '../../css/components/settings.css';
+import $                 from 'jquery';
+import _                 from 'lodash';
 import Marionette        from 'backbone.marionette';
 import settingsTemplate  from '../../templates/settings/layout.hbs';
 import SettingsInputView from '../views/setting-input-view';
 import LocationInputView from '../views/location-input-view';
-import { getUser, setUser } from '../services/user';
+import { getUser, setUserOnAPI } from '../services/user';
 
 import {
   locationModel,
-  attendanceModel,
   emailModel
 } from '../collections/user-preferences.js';
-
 
 export default Marionette.LayoutView.extend({
   template: settingsTemplate,
@@ -37,17 +37,37 @@ export default Marionette.LayoutView.extend({
 
   onFormSubmit: function(e) {
     e.preventDefault();
+
     //TODO submit and validate data
+
+    var results = {
+      lat:     $('[name=lat]').val(),
+      lon:     $('[name=lng]').val(),
+      code:    $('[name=country_short]').val(),
+      city:    $('[name=locality]').val(),
+      country: $('[name=country]').val(),
+    };
+
     getUser()
       .then((user) => {
-        user.hasCompletedForm = true;
-        return setUser(user);
+
+        //format some data
+        var data = _.extend({}, user, results, {
+          hasCompletedForm: true,
+        });
+        delete data.id;
+
+        //post it to the user
+        return setUserOnAPI(data);
       })
       .then(() => {
-        console.log('written user', this);
         this.trigger('form:submit');
       })
-      .catch((err) => this.trigger('error', err));
+      .catch((err) => {
+        console.log('-----------------------');
+        console.log(err);
+        console.log('-----------------------');
+      });
   },
 
 });
