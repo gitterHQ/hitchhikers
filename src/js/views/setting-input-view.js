@@ -27,7 +27,8 @@ export default Marionette.ItemView.extend({
     var val = this.model.get('value');
     var name = this.model.get('name');
     var selector = `[name=${name}]`;
-    this.$el.find(selector).val(val);
+    var el = this.$el.find(selector);
+    el.val(val);
   },
 
   onModelError: function(model) {
