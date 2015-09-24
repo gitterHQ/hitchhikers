@@ -30,6 +30,7 @@
 
 .index-layout__map-container__map {
   height: 400px;
+  background-color: $brand-first;
 }
 
 .index-layout__map-container__login {
@@ -39,4 +40,11 @@
 
 .index-layout__map-container__login__icon {
   margin:         0 .3em;
+}
+.leaflet-popup-content {
+  padding: 10px;
+}
+.round-pin {
+  border-radius: 100%;
+  border: 1px solid #a9e2ff;
 }
