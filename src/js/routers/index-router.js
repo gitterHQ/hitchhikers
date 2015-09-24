@@ -92,7 +92,11 @@ export default Backbone.Router.extend({
         this.stopListening(settingsLayout, 'form:submit');
 
         //manually call the routeAction as we are already on the index page
-        this.onIndexRoute();
+        if (/settings/.test(window.location.hash)) {
+          this.navigate('', {trigger: true});
+        } else {
+          this.onIndexRoute();
+        }
       });
 
       this.initMenus();

@@ -25,20 +25,23 @@
 .results-container__detail {
   @include text-base();
   @include h2();
-  max-width:  80rem;
-  margin-top: 4.5rem;
+  max-width:     80rem;
+  margin-top:    4.5rem;
+  margin-bottom: 7.2rem;
 }
 
 .results-list {
-  display:        flex;
-  flex-direction: row;
-  padding-left:   0;
-  flex-wrap:      wrap;
+  display:         flex;
+  flex-direction:  row;
+  padding-left:    0;
+  flex-wrap:       wrap;
   justify-content: center;
+  max-width:       80%;
+  margin:          auto;
 
   & li {
     flex:         0 0 20rem;
-    margin-right: 2rem;
+    margin:  0 1rem;
   }
 
   & .leaderboard__items__item__count {
@@ -58,7 +61,8 @@
 }
 
 .suggestion-content__reason {
-  font-size: 1.2rem;
-  color: #fff;
+  font-size:   1.2rem;
+  color:       #fff;
   font-weight: 200;
+  line-height: 1.8rem;
 }

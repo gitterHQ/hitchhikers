@@ -25,10 +25,17 @@ export default Marionette.LayoutView.extend({
     'submit': 'onFormSubmit',
   },
 
-  initialize: function (){
+  model: new Backbone.Model(),
+  modelEvents: {
+    'change': 'render',
+  },
+
+  initialize: function() {
     getUser().then((user) => {
+      console.log(user);
       if (user.email) emailModel.set('value', user.email);
       if (user.displayVal) locationModel.set('value', user.displayVal);
+      this.model.set('hasCompletedForm', user.hasCompletedForm);
     });
   },
 
@@ -48,6 +55,8 @@ export default Marionette.LayoutView.extend({
 
     //TODO submit and validate data
 
+    var emailPrivate = $('[name=email-private]').is(':checked');
+
     var results = {
       lat:        $('[name=lat]').val(),
       lon:        $('[name=lng]').val(),
@@ -55,8 +64,10 @@ export default Marionette.LayoutView.extend({
       city:       $('[name=locality]').val(),
       country:    $('[name=country]').val(),
       displayVal: $('[name=location]').val(),
-      email:      $('[name=email]').val(),
+      email:      !(emailPrivate) ? $('[name=email]').val() : '',
     };
+
+    console.log(results);
 
     getUser()
       .then((user) => {

@@ -20,13 +20,14 @@
 .settings-container__form__location {
   & .settings-input__wrapper {
     width: 55rem;
+    margin-right: 0;
   }
 }
 
 .settings-input__wrapper {
   position: relative;
   height:       5rem;
-  width:        35rem;
+  width:        40rem;
   max-width:    100%;
   margin-right: 2rem;
 
