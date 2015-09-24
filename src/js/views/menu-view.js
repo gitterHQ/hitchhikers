@@ -13,7 +13,6 @@ var MenuItemView = Marionette.ItemView.extend({
 var MenuModel = Backbone.Model.extend({
   initialize: function() {
     getUser().then((user) => {
-      console.log('user', user);
       this.set(user);
     });
   },
