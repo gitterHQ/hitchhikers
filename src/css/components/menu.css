@@ -20,13 +20,14 @@
 }
 
 .menu {
-  position:   fixed;
-  top:        0;
-  left:       50%;
-  height:     100%;
-  width:      50%;
-  overflow:   hidden;
-  background: $menu-background;
+  position:     fixed;
+  top:          0;
+  left:         50%;
+  height:       100%;
+  padding-left: 2rem;
+  width:        50%;
+  overflow:     hidden;
+  background:   $menu-background;
 
   @media(min-width: 780px) {
     width:      25%;
