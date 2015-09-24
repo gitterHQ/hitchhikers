@@ -8,6 +8,7 @@ export var locationModel = new Backbone.Model({
   type:        'text',
   icon:        'globe',
   value:       '',
+  shouldShowCheckbox: false,
 });
 
 export var attendanceModel = new Backbone.Model({
@@ -17,6 +18,7 @@ export var attendanceModel = new Backbone.Model({
   type:        'text',
   icon:        'eye',
   disabled:    true,
+  shouldShowCheckbox: true,
 });
 
 export var emailModel = new Backbone.Model({
@@ -26,6 +28,7 @@ export var emailModel = new Backbone.Model({
   type:        'email',
   icon:        'mail',
   value:       '',
+  shouldShowCheckbox: true,
 });
 
 //Collection

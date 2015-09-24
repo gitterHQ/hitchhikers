@@ -5,14 +5,9 @@
       How much should the universe know about you ?
     </h1>
 
-    <div data-component="user-location-input"></div>
+    <div class="settings-container__form__location"  data-component="user-location-input"></div>
     <h2 class="settings-container__form__label">
       Share your location and we will plot it on the map for other people to know ?
-    </h2>
-
-    <div data-component="user-attendance-input"></div>
-    <h2 class="settings-container__form__label">
-      Make you attendance public ?
     </h2>
 
     <div data-component="user-email-input"></div>
@@ -24,7 +19,15 @@
       Find other travellers
     </button>
   </form>
+
   <p class="settings-container__detail">
     This is just a fun little hack from the team at
     <a class="settings-container__detail__link" href="http://gitter.im"> Gitter </a> to help people meet each other at universe. All data is temporarily stored.
+  </p>
+
+  <form class="hidden" data-component="details">
+    <input type="text" name="lat" />
+    <input type="text" name="lng" />
+    <input type="text" name="country_short" />
+  </form>
 </section>

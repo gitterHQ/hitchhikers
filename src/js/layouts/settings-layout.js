@@ -17,7 +17,6 @@ export default Marionette.LayoutView.extend({
 
   regions:      {
     location:   '[data-component="user-location-input"]',
-    attendance: '[data-component="user-attendance-input"]',
     email:      '[data-component="user-email-input"]',
   },
 
@@ -28,10 +27,6 @@ export default Marionette.LayoutView.extend({
   onRender: function() {
     this.location.show(new LocationInputView({
       model: locationModel,
-    }));
-
-    this.attendance.show(new SettingsInputView({
-      model: attendanceModel,
     }));
 
     this.email.show(new SettingsInputView({

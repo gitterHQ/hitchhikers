@@ -17,7 +17,11 @@
 
 }
 
-
+.settings-container__form__location {
+  & .settings-input__wrapper {
+    width: 55rem;
+  }
+}
 
 .settings-input__wrapper {
   position: relative;
