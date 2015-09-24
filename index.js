@@ -24,10 +24,17 @@ app.use('/private', require('./lib/routes/private'));
 app.use('/leaderboards', require('./lib/routes/leaderboards'));
 
 app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  
   if (err.status == 301) {
     return res.redirect(err.location);
   }
-  next();
+
+  if (err.status) {
+    res.sendStatus(err.status);
+  }
+
+  res.sendStatus(500);
 });
 
 
@@ -36,7 +43,7 @@ app.get('/', function(req, res){
 });
 
 process.on('uncaughtException', function(err) {
-  console.error(err);
+  console.error(err.stack);
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
@@ -45,4 +52,3 @@ var server = app.listen(process.env.PORT || 3000, function () {
 
   console.log('Listening at http://%s:%s', host, port);
 });
-
