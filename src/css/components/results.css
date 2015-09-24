@@ -68,6 +68,7 @@
 }
 
 .results-container__share {
+  @include text-base();
   @include btn-secondary();
   margin: 7rem 0;
 }
