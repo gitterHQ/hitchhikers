@@ -6,20 +6,15 @@ import LeadboardLayout        from './leaderboard-layout';
 import ResultsView            from '../views/results-view';
 
 var ResultsCollection = Backbone.Collection.extend({
-  url: '/user/suggestions',
+  url: '/leaderboards/users',
 });
 
 export default Marionette.LayoutView.extend({
   template: resultsLayoutTemplate,
-  collection: new ResultsCollection(),
 
   regions: {
     leaderBoards: '[data-component="index-layout-leaderboard"]',
     results:      '[data-component="results"]',
-  },
-
-  initialize: function() {
-    if (this.collection) this.collection.fetch();
   },
 
   onRender: function() {
