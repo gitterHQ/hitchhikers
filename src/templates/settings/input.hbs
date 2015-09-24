@@ -4,10 +4,11 @@
   <div class="settings-input__wrapper">
     <input  class="settings-input__wrapper__input"
             data-component="text-input"
-            {{#if disabled}}disabled="true"{{/if}}
+            {{#if disabled}} disabled="true" {{/if}}
             type="{{type}}"
             name="{{name}}"
             id={{name}}
+            {{#if storedVal}} value="{{storedVal}}" {{/if}}
             placeholder="{{placeholder}}"/>
 
     <span class="settings-input__wrapper__icon  octicon octicon-{{icon}}"></span>
