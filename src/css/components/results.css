@@ -25,16 +25,19 @@
 .results-container__detail {
   @include text-base();
   @include h2();
-  max-width:  80rem;
-  margin-top: 4.5rem;
+  max-width:     80rem;
+  margin-top:    4.5rem;
+  margin-bottom: 3rem;
 }
 
 .results-list {
-  display:        flex;
-  flex-direction: row;
-  padding-left:   0;
-  flex-wrap:      wrap;
+  display:         flex;
+  flex-direction:  row;
+  padding-left:    0;
+  flex-wrap:       wrap;
   justify-content: center;
+  max-width:       80%;
+  margin:          auto;
 
   & li {
     flex:         0 0 20rem;
