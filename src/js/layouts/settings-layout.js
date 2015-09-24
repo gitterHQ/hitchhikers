@@ -5,6 +5,7 @@ import Marionette        from 'backbone.marionette';
 import settingsTemplate  from '../../templates/settings/layout.hbs';
 import SettingsInputView from '../views/setting-input-view';
 import LocationInputView from '../views/location-input-view';
+
 import { getUser, setUserOnAPI } from '../services/user';
 
 import {
@@ -24,6 +25,13 @@ export default Marionette.LayoutView.extend({
     'submit': 'onFormSubmit',
   },
 
+  initialize: function (){
+    getUser().then((user) => {
+      if (user.email) emailModel.set('value', user.email);
+      if (user.displayVal) locationModel.set('value', user.displayVal);
+    });
+  },
+
   onRender: function() {
     this.location.show(new LocationInputView({
       model: locationModel,
@@ -41,11 +49,13 @@ export default Marionette.LayoutView.extend({
     //TODO submit and validate data
 
     var results = {
-      lat:     $('[name=lat]').val(),
-      lon:     $('[name=lng]').val(),
-      code:    $('[name=country_short]').val(),
-      city:    $('[name=locality]').val(),
-      country: $('[name=country]').val(),
+      lat:        $('[name=lat]').val(),
+      lon:        $('[name=lng]').val(),
+      code:       $('[name=country_short]').val(),
+      city:       $('[name=locality]').val(),
+      country:    $('[name=country]').val(),
+      displayVal: $('[name=location]').val(),
+      email:      $('[name=email]').val(),
     };
 
     getUser()

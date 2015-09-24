@@ -6,12 +6,23 @@ import LeaderBoardView      from '../views/leaderboard-view';
 
 var CountryCollection = Backbone.Collection.extend({
   url: '/leaderboards/country',
+  model: Backbone.Model.extend({
+    initialize: function(attrs) {
+      this.set('image', `/images/flags/${attrs.code.toLowerCase()}.png`);
+    },
+  }),
 });
 
 var DistanceCollection = Backbone.Collection.extend({
   url: '/leaderboards/distance',
+  model: Backbone.Model.extend({
+    initialize: function(attrs) {
+      this.set('username', attrs.login);
+      this.set('count', attrs.distance);
+      this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
+    },
+  }),
 });
-
 
 export default Marionette.LayoutView.extend({
   template: leaderBoardsTemplate,
@@ -27,7 +38,7 @@ export default Marionette.LayoutView.extend({
       collection: new DistanceCollection(),
     }));
 
-    var locationsCollection =     this.locations.show(new LeaderBoardView({
+    this.locations.show(new LeaderBoardView({
       model:      new Backbone.Model({ title: 'Hitchhiking Hometowns' }),
       collection: new CountryCollection(),
     }));

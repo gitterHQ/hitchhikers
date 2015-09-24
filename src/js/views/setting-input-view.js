@@ -11,7 +11,8 @@ export default Marionette.ItemView.extend({
   },
 
   modelEvents: {
-    'error': 'onModelError',
+    'error':        'onModelError',
+    'change:value': 'onModelUpdateValue',
   },
 
   onInputChange: function(e) {
@@ -20,6 +21,13 @@ export default Marionette.ItemView.extend({
 
   onCheckboxChange: function(e) {
     this.model.set('private', e.target.checked);
+  },
+
+  onModelUpdateValue: function() {
+    var val = this.model.get('value');
+    var name = this.model.get('name');
+    var selector = `[name=${name}]`;
+    this.$el.find(selector).val(val);
   },
 
   onModelError: function(model) {
