@@ -25,10 +25,16 @@ export default Marionette.LayoutView.extend({
     'submit': 'onFormSubmit',
   },
 
+  model: new Backbone.Model(),
+  modelEvents: {
+    'change': 'render'
+  },
+
   initialize: function (){
     getUser().then((user) => {
       if (user.email) emailModel.set('value', user.email);
       if (user.displayVal) locationModel.set('value', user.displayVal);
+      this.model.set('hasCompletedForm', user.hasCompletedForm);
     });
   },
 
