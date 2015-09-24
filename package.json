@@ -65,6 +65,7 @@
     "node-geocoder": "^3.0.2",
     "octicons": "^2.4.1",
     "request": "^2.63.0",
+    "serve-favicon": "^2.3.0",
     "statuserror": "0.0.1",
     "superagent": "^1.4.0",
     "tentacles": "^0.2.8",

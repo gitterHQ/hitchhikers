@@ -7,8 +7,11 @@ var cookieParser = require('cookie-parser')
 var authuser = require('./lib/middleware/authuser');
 var privatesecret = require('./lib/middleware/privatesecret');
 var cors = require('cors');
+var favicon = require('serve-favicon');
 
 var app = express();
+
+app.use(favicon(__dirname + '/src/img/favicon-normal.ico'));
 
 app.use(function(req, res, next) {
   console.log('%s %s %s', req.method, req.originalUrl, req.path);
