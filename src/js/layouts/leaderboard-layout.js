@@ -12,9 +12,6 @@ var DistanceCollection = Backbone.Collection.extend({
   url: '/leaderboards/distance',
 });
 
-var UsersCollection = Backbone.Collection.extend({
-  url: '/leaderboards/users',
-});
 
 export default Marionette.LayoutView.extend({
   template: leaderBoardsTemplate,
@@ -22,7 +19,6 @@ export default Marionette.LayoutView.extend({
   regions:     {
     distance:  '[data-component="distance-travelled"]',
     locations: '[data-component="locations"]',
-    members:   '[data-component="members"]',
   },
 
   onRender: function() {
@@ -34,11 +30,6 @@ export default Marionette.LayoutView.extend({
     var locationsCollection =     this.locations.show(new LeaderBoardView({
       model:      new Backbone.Model({ title: 'Hitchhiking Hometowns' }),
       collection: new CountryCollection(),
-    }));
-
-    this.members.show(new LeaderBoardView({
-      model:      new Backbone.Model({ title: 'Hitchhikers Gathered' }),
-      collection: new UsersCollection(),
     }));
   },
 });

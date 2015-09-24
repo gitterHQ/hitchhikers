@@ -1,0 +1,43 @@
+@import "../mixins/utils/border-box.css";
+@import "../mixins/grid/row.css";
+@import "../mixins/text/base.css";
+@import "../mixins/text/h1.css";
+@import "../mixins/text/h2.css";
+.results-container {
+  @include border-box();
+  @include row();
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 1rem;
+  background: $brand-second;
+  text-align: center;
+}
+
+.results-container__title {
+  @include text-base();
+  @include h1();
+  margin-bottom: 8rem;
+}
+
+.results-container__detail {
+  @include text-base();
+  @include h2();
+  max-width:  80rem;
+  margin-top: 4.5rem;
+}
+
+.results-list {
+  display:        flex;
+  flex-direction: row;
+  padding-left:   0;
+  flex-wrap:      wrap;
+
+  & li {
+    flex:         0 0 20rem;
+    margin-right: 2rem;
+  }
+
+  & .leaderboard__items__item__count {
+    display: none;
+  }
+}

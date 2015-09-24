@@ -14,17 +14,19 @@
   </div>
 
   <!-- Checkbox -->
-  <label class="settings-input__checkbox-container" for="{{name}}-private">
+  {{#if shouldShowCheckbox}}
+    <label class="settings-input__checkbox-container" for="{{name}}-private">
 
-    <!-- Hidden input -->
-    <input class="settings-input__checkbox-container__checkbox"
-          {{#if private}}  checked="true"  {{/if}}
-          type="checkbox"
-          name="{{name}}-private"
-          id="{{name}}-private"/>
+      <!-- Hidden input -->
+      <input class="settings-input__checkbox-container__checkbox"
+            {{#if private}}  checked="true"  {{/if}}
+            type="checkbox"
+            name="{{name}}-private"
+            id="{{name}}-private"/>
 
-    <!-- Sliding input  -->
-    <span class="settings-input__checkbox-container__track"></span>
+      <!-- Sliding input  -->
+      <span class="settings-input__checkbox-container__track"></span>
 
-  </label>
+    </label>
+  {{/if}}
 </div>
