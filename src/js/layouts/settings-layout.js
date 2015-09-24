@@ -24,6 +24,14 @@ export default Marionette.LayoutView.extend({
     'submit': 'onFormSubmit',
   },
 
+  initialize: function (){
+    console.log('init');
+    getUser().then((user) => {
+      if (user.email) emailModel.set('value', user.email);
+      if (user.displayVal) locationModel.set('value', user.displayVal);
+    });
+  },
+
   onRender: function() {
     this.location.show(new LocationInputView({
       model: locationModel,
@@ -41,11 +49,13 @@ export default Marionette.LayoutView.extend({
     //TODO submit and validate data
 
     var results = {
-      lat:     $('[name=lat]').val(),
-      lon:     $('[name=lng]').val(),
-      code:    $('[name=country_short]').val(),
-      city:    $('[name=locality]').val(),
-      country: $('[name=country]').val(),
+      lat:        $('[name=lat]').val(),
+      lon:        $('[name=lng]').val(),
+      code:       $('[name=country_short]').val(),
+      city:       $('[name=locality]').val(),
+      country:    $('[name=country]').val(),
+      displayVal: $('[name=location]').val(),
+      email:      $('[name=email]').val(),
     };
 
     getUser()
