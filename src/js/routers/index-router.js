@@ -47,7 +47,7 @@ export default Backbone.Router.extend({
 
             this.listenTo(indexLayout, 'login:clicked', () => {
               this.stopListening(indexLayout, 'login:clicked');
-              this.navigate('loading', { trigger: true });
+              this.onRouteLoading();
             });
 
             indexLayout.render();
@@ -94,7 +94,10 @@ export default Backbone.Router.extend({
         //manually call the routeAction as we are already on the index page
         this.onIndexRoute();
       });
+
       this.initMenus();
+      if (this.menuTriggerView) this.menuTriggerView.close();
+
     });
   },
 

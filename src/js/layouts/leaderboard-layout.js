@@ -11,6 +11,9 @@ var CountryCollection = Backbone.Collection.extend({
       this.set('image', `/images/flags/${attrs.code.toLowerCase()}.png`);
     },
   }),
+  filter: function(model, index) {
+    return index < 5;
+  },
 });
 
 var DistanceCollection = Backbone.Collection.extend({
@@ -22,6 +25,9 @@ var DistanceCollection = Backbone.Collection.extend({
       this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
     },
   }),
+  filter: function(model, index) {
+    return index < 5;
+  },
 });
 
 export default Marionette.LayoutView.extend({
@@ -34,7 +40,7 @@ export default Marionette.LayoutView.extend({
 
   onRender: function() {
     this.distance.show(new LeaderBoardView({
-      model:      new Backbone.Model({ title: 'Lightmiles Traveled' }),
+      model:      new Backbone.Model({ title: 'Miles Traveled' }),
       collection: new DistanceCollection(),
     }));
 

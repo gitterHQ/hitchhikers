@@ -38,13 +38,13 @@
 
 .footer__detail__left {
   display: inline-block;
-  width: 200px;
+  width: 150px;
   text-align: right;
 }
 
 .footer__detail__right {
   display: inline-block;
-  width: 200px;
+  width: 150px;
   text-align: left;
 }
 

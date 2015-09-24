@@ -31,6 +31,7 @@
   flex-direction: row;
   padding-left:   0;
   flex-wrap:      wrap;
+  justify-content: center;
 
   & li {
     flex:         0 0 20rem;
