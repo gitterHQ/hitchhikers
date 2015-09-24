@@ -3,7 +3,7 @@
 @import "../mixins/text/base.css";
 @import "../mixins/text/h1.css";
 @import "../mixins/text/h2.css";
-.suggestions-container {
+.results-container {
   @include border-box();
   @include row();
   flex-direction: column;
@@ -13,13 +13,13 @@
   text-align: center;
 }
 
-.suggestions-container__title {
+.results-container__title {
   @include text-base();
   @include h1();
   margin-bottom: 8rem;
 }
 
-.suggestions-container__detail {
+.results-container__detail {
   @include text-base();
   @include h2();
   margin-top: 4.5rem;
