@@ -21,7 +21,7 @@ var DistanceCollection = Backbone.Collection.extend({
   model: Backbone.Model.extend({
     initialize: function(attrs) {
       this.set('username', attrs.login);
-      this.set('count', attrs.distance / 1600);
+      this.set('count', Math.round(attrs.distance / 1600));
       this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
     },
   }),
