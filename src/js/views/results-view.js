@@ -5,6 +5,9 @@ import LeaderBoardItem         from './leaderboard-item-view';
 var ResultsCollection = Backbone.Collection.extend({
   url: '/user/suggestions',
   model: Backbone.Model.extend({
+    defaults: {
+      shouldShowReason: true
+    },
     initialize: function(attrs) {
       this.set('username', attrs.login);
       this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
