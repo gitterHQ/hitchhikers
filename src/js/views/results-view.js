@@ -4,6 +4,11 @@ import LeaderBoardItem         from './leaderboard-item-view';
 
 var ResultsCollection = Backbone.Collection.extend({
   url: '/user/suggestions',
+  model: Backbone.Model.extend({
+    initialize: function(attrs) {
+      this.set('username', attrs.login);
+    },
+  }),
 });
 
 export default Marionette.CompositeView.extend({
