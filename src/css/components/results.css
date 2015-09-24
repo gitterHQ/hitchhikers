@@ -4,6 +4,7 @@
 @import "../mixins/text/h1.css";
 @import "../mixins/text/h2.css";
 @import "../mixins/text/p.css";
+@import "../mixins/buttons/btn-secondary.css";
 
 
 .results-container {
@@ -27,7 +28,6 @@
   @include h2();
   max-width:     80rem;
   margin-top:    4.5rem;
-  margin-bottom: 7.2rem;
 }
 
 .results-list {
@@ -65,4 +65,10 @@
   color:       #fff;
   font-weight: 200;
   line-height: 1.8rem;
+}
+
+.results-container__share {
+  @include text-base();
+  @include btn-secondary();
+  margin: 7rem 0;
 }
