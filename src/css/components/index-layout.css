@@ -28,6 +28,10 @@
   margin-top:     4.5rem;
 }
 
+.index-layout__map-container__map {
+  height: 400px;
+}
+
 .index-layout__map-container__login {
   @include text-base();
   @include btn-primary();
