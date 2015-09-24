@@ -36,6 +36,18 @@
   margin:    0 .3em;
 }
 
+.footer__detail__left {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+}
+
+.footer__detail__right {
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+}
+
 .footer__detail__link {
   @include anchor-reset();
   @include anchor();
