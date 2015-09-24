@@ -48,6 +48,8 @@ export default Marionette.LayoutView.extend({
 
     //TODO submit and validate data
 
+    var emailPrivate = $('[name=email-private]').is(':checked');
+
     var results = {
       lat:        $('[name=lat]').val(),
       lon:        $('[name=lng]').val(),
@@ -55,8 +57,10 @@ export default Marionette.LayoutView.extend({
       city:       $('[name=locality]').val(),
       country:    $('[name=country]').val(),
       displayVal: $('[name=location]').val(),
-      email:      $('[name=email]').val(),
+      email:      !(emailPrivate) ? $('[name=email]').val() : '',
     };
+
+    console.log(results);
 
     getUser()
       .then((user) => {

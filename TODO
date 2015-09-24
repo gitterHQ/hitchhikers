@@ -1,4 +1,4 @@
 Add indexeddb caching to all models/collections
 add service worker for caching
 add commonChunksPlugin
-ass UglifyJSPlugin
+destroy view propely
