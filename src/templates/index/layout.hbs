@@ -2,7 +2,6 @@
 
   <section class="index-layout__map-container">
     <h1 class="index-layout__map-container__heading">The unofficial hitchhiker's guide to Github's universe</h1>
-    <div class="index-layout__map-container__map" data-component="index-layout-map"></div>
     <!-- TODO Add the client ID from js as it is in the config file -->
     <p class="index-layout__map-container__detail">
       42 ways to help you explore the universe
@@ -16,6 +15,36 @@
     </p>
   </section>
 
+  <div class="index-layout__map-container__map" data-component="index-layout-map" id="map"></div>
+
   <div data-component="index-layout-leaderboard"></div>
 
 </div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(event) {
+L.mapbox.accessToken = 'pk.eyJ1IjoibGVyb3V4YiIsImEiOiJjaWV5ajFjNWcwMGI4c3VtNDRtdWRoeTgzIn0.ymSpDmGfwJVXc9-oCOUsMw';
+
+var map = L.mapbox.map('map', 'lerouxb.nhefe79k', {
+  zoomControl: false
+}).setView([40, 0], 2);
+
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+if (map.tap) map.tap.disable();
+
+var featureLayer = L.mapbox.featureLayer()
+  .loadURL('https://hitchhikers.gitter.im/users/geojson')
+  .addTo(map);
+featureLayer.on('ready', function() {
+  map.fitBounds(featureLayer.getBounds());
+});
+ window.addEventListener('resize', function() {
+  map.fitBounds(featureLayer.getBounds());
+});
+});
+
+
+</script>
