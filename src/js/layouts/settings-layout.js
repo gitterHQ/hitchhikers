@@ -5,6 +5,7 @@ import Marionette        from 'backbone.marionette';
 import settingsTemplate  from '../../templates/settings/layout.hbs';
 import SettingsInputView from '../views/setting-input-view';
 import LocationInputView from '../views/location-input-view';
+
 import { getUser, setUserOnAPI } from '../services/user';
 
 import {
@@ -25,7 +26,6 @@ export default Marionette.LayoutView.extend({
   },
 
   initialize: function (){
-    console.log('init');
     getUser().then((user) => {
       if (user.email) emailModel.set('value', user.email);
       if (user.displayVal) locationModel.set('value', user.displayVal);

@@ -10,8 +10,13 @@ var CountryCollection = Backbone.Collection.extend({
 
 var DistanceCollection = Backbone.Collection.extend({
   url: '/leaderboards/distance',
+  model: Backbone.Model.extend({
+    initialize: function(attrs) {
+      this.set('username', attrs.login);
+      this.set('count', attrs.distance);
+    },
+  }),
 });
-
 
 export default Marionette.LayoutView.extend({
   template: leaderBoardsTemplate,
@@ -27,7 +32,7 @@ export default Marionette.LayoutView.extend({
       collection: new DistanceCollection(),
     }));
 
-    var locationsCollection =     this.locations.show(new LeaderBoardView({
+    this.locations.show(new LeaderBoardView({
       model:      new Backbone.Model({ title: 'Hitchhiking Hometowns' }),
       collection: new CountryCollection(),
     }));
