@@ -70,3 +70,8 @@
 .leaderboard__items__item__count {
   margin-left: auto;
 }
+
+.leaderboard__link {
+  color: inherit;
+  text-decoration: none;
+}

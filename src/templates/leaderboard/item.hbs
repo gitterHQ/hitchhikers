@@ -8,6 +8,8 @@
 </div>
 {{else}}
 <img class="leaderboard__items__item__image" alt="{{username}} title=" {{username}} src="{{image}}" />
-<p class="leaderboard__items__item__username">{{username}}</p>
+{{#if link}}<a class="leaderboard__link" target="_blank"  href="{{link}}">{{/if}}
+  <p class="leaderboard__items__item__username">{{username}}</p>
+{{#if link}}</a>{{/if}}
 <p class="leaderboard__items__item__count">{{count}}</p>
 {{/if}}
