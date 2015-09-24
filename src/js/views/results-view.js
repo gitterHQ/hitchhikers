@@ -1,6 +1,7 @@
 import Marionette from 'backbone.marionette';
 import resultsTemplate from '../../templates/results/view.hbs';
 import LeaderBoardItem         from './leaderboard-item-view';
+import { getUser } from '../services/user';
 
 var ResultsCollection = Backbone.Collection.extend({
   url: '/user/suggestions',
@@ -24,6 +25,5 @@ export default Marionette.CompositeView.extend({
 
   initialize: function() {
     this.collection.fetch();
-    window.collection = this.collection;
   },
 });

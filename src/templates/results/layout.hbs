@@ -4,12 +4,15 @@
     <h2 class="results-container__detail">
       We took a look at some of your public GitHub data and tried to find interesting people we think you should meet.
     </h2>
-    <a  href="https://twitter.com/share?text='awesomesource'"
-        target="_blank"
-        class="results-container__share">
-      <i class="fa fa-twitter"></i>
-      Share
-    </a>
+
+    {{#if distance}}
+    <a href="https://twitter.com/share?text='I've travelled {{distance}} miles to Github Universe. Try to find me!'"
+       target="_blank"
+       class="results-container__share">
+        <i class="fa fa-twitter"></i> Share
+      </a>
+    {{/if}}
+
     <div data-component="results"></div>
     <h2 class="results-container__detail">
       Check back soon as more people are added to the universe.
@@ -17,4 +20,3 @@
   </div>
   <div data-component="index-layout-leaderboard"></div>
 </div>
-
