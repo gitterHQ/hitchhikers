@@ -1,6 +1,6 @@
-var users = require('../lib/db/users');
+var db = require('../lib/db');
 
-users.findEmailable()
+db.users.findEmailable()
   .then(function(users) {
     console.log(users);
   })

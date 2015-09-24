@@ -1,4 +1,4 @@
-var users = require('../lib/db/users');
+var db = require('../lib/db');
 
 var attrs = {
   login: "lerouxb",
@@ -6,7 +6,7 @@ var attrs = {
   email: "lerouxb@gmail.com"
 };
 
-users.update("lerouxb", attrs)
+db.users.update("lerouxb", attrs)
   .then(function(user) {
     console.log(user);
   }).catch(function(err) {

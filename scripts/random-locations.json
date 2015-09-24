@@ -1,0 +1,149 @@
+[
+  {
+    "lat": 31.2253441,
+    "lon": 121.4888922,
+    "city": "Shanghai",
+    "country": "China",
+    "code": "CN"
+  },
+  {
+    "lat": 24.8667795,
+    "lon": 67.0311286,
+    "city": "Karachi",
+    "country": "Pakistan",
+    "code": "PK"
+  },
+  {
+    "lat": 39.9059093,
+    "lon": 116.3913489,
+    "city": "Beijing",
+    "country": "China",
+    "code": "CN"
+  },
+  {
+    "lat": 39.1235635,
+    "lon": 117.1980785,
+    "city": "Tianjin",
+    "country": "China",
+    "code": "CN"
+  },
+  {
+    "lat": 41.0096334,
+    "lon": 28.9651646,
+    "city": "Istanbul",
+    "country": "Turkey",
+    "code": "TR"
+  },
+  {
+    "lat": 23.1300037,
+    "lon": 113.259001,
+    "city": "Guangzhou",
+    "country": "China",
+    "code": "CN"
+  },
+  {
+    "lat": 18.9523804,
+    "lon": 72.8327112,
+    "city": "Mumbai",
+    "country": "India",
+    "code": "IN"
+  },
+  {
+    "lat": 55.7516335,
+    "lon": 37.6187042,
+    "city": "Moscow",
+    "country": "Russian Federation",
+    "code": "RU"
+  },
+  {
+    "lat": 23.7593572,
+    "lon": 90.3788136,
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "code": "BD"
+  },
+  {
+    "lat": 30.0488185,
+    "lon": 31.2436663,
+    "city": "Cairo",
+    "country": "Egypt",
+    "code": "EG"
+  },
+  {
+    "lat": 37.5666791,
+    "lon": 126.9782914,
+    "city": "Seoul",
+    "country": "South Korea",
+    "code": "KR"
+  },
+  {
+    "lat": 31.5621916,
+    "lon": 74.3228517,
+    "city": "Lahore",
+    "country": "Pakistan",
+    "code": "PK"
+  },
+  {
+    "lat": -6.1753941,
+    "lon": 106.8271826,
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "code": "ID"
+  },
+  {
+    "lat": -4.3217055,
+    "lon": 15.3125974,
+    "city": "Kinshasa",
+    "country": "Congo-Kinshasa",
+    "code": "CD"
+  },
+  {
+    "lat": 19.4325301,
+    "lon": -99.1332102,
+    "city": "Mexico City",
+    "country": "Mexico",
+    "code": "MX"
+  },
+  {
+    "lat": 40.7305991,
+    "lon": -73.9865812,
+    "city": "New York City",
+    "country": "United States of America",
+    "code": "US"
+  },
+  {
+    "lat": 51.5073219,
+    "lon": -0.1276474,
+    "city": "London",
+    "country": "United Kingdom",
+    "code": "GB"
+  },
+  {
+    "lat": 37.7792768,
+    "lon": -122.4192704,
+    "city": "San Francisco",
+    "country": "United States of America",
+    "code": "US"
+  },
+  {
+    "lat": 48.8565056,
+    "lon": 2.3521334,
+    "city": "Paris",
+    "country": "France",
+    "code": "FR"
+  },
+  {
+    "lat": 52.5170365,
+    "lon": 13.3888599,
+    "city": "Berlin",
+    "country": "Germany",
+    "code": "DE"
+  },
+  {
+    "lat": 22.2793278,
+    "lon": 114.1628131,
+    "city": "Hong Kong",
+    "country": "China",
+    "code": "CN"
+  }
+]
