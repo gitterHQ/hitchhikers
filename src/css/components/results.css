@@ -3,6 +3,9 @@
 @import "../mixins/text/base.css";
 @import "../mixins/text/h1.css";
 @import "../mixins/text/h2.css";
+@import "../mixins/text/p.css";
+
+
 .results-container {
   @include border-box();
   @include row();
@@ -41,4 +44,21 @@
   & .leaderboard__items__item__count {
     display: none;
   }
+}
+
+
+
+.suggestion-content {
+  text-align: left;
+}
+
+.suggestion-content__name {
+  @include p();
+  margin: .5rem 0 0 0;
+}
+
+.suggestion-content__reason {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 200;
 }
