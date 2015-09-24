@@ -20,7 +20,6 @@
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function(event) {
 L.mapbox.accessToken = 'pk.eyJ1IjoibGVyb3V4YiIsImEiOiJjaWV5ajFjNWcwMGI4c3VtNDRtdWRoeTgzIn0.ymSpDmGfwJVXc9-oCOUsMw';
 
 var map = L.mapbox.map('map', 'lerouxb.nhefe79k', {
@@ -40,7 +39,6 @@ featureLayer.on('ready', function() {
 });
  window.addEventListener('resize', function() {
   map.fitBounds(featureLayer.getBounds());
-});
 });
 
 
