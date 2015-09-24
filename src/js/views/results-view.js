@@ -3,7 +3,7 @@ import resultsTemplate from '../../templates/results/view.hbs';
 import LeaderBoardItem         from './leaderboard-item-view';
 
 var ResultsCollection = Backbone.Collection.extend({
-  url: '/leaderboards/users',
+  url: '/user/suggestions',
 });
 
 export default Marionette.CompositeView.extend({
@@ -13,7 +13,7 @@ export default Marionette.CompositeView.extend({
   childViewContainer: '[data-component="results-list"]',
   collection: new ResultsCollection(),
 
-  initialize: function (){
+  initialize: function() {
     this.collection.fetch();
     window.collection = this.collection;
   },

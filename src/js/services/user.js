@@ -1,3 +1,4 @@
+import _          from 'lodash';
 import promiseDB  from 'promise-db';
 import dbConfig   from '../../../config/indexed';
 import request    from 'superagent';
@@ -45,5 +46,18 @@ export var setUser = (user) => {
      .then(resolve)
      .catch(reject);
 
+  });
+};
+
+export var setUserOnAPI = (user) => {
+  return new Promise((resolve, reject) => {
+    request
+      .put('/user')
+      .send(user)
+      .end((err, res) => {
+        if (err) return reject(err);
+        user = _.extend({}, user, res.body);
+        setUser(user).then(resolve).catch(reject);
+      });
   });
 };
