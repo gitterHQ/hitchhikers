@@ -21,7 +21,7 @@ app.use('/github', require('./lib/routes/github'));
 app.use('/user', authuser, require('./lib/routes/user'));
 app.use('/users', require('./lib/routes/users'));
 app.use('/private', require('./lib/routes/private'));
-app.use('/leaderboards', require('./mock/index'));
+app.use('/leaderboards', require('./lib/routes/leaderboards'));
 
 app.use(function(err, req, res, next) {
   if (err.status == 301) {
