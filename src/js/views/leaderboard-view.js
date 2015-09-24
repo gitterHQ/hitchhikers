@@ -9,4 +9,8 @@ export default Marionette.CompositeView.extend({
   initialize: function() {
     if (this.collection) this.collection.fetch();
   },
+
+  filter: function(model, index) {
+    return index < 5;
+  },
 });
