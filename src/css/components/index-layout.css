@@ -1,4 +1,4 @@
-@import "../mixins/utils/border-box.css";
+index-layout__map-container__detail@import "../mixins/utils/border-box.css";
 @import "../mixins/grid/row.css";
 @import "../mixins/text/base.css";
 @import "../mixins/text/h1.css";
@@ -26,6 +26,10 @@
   @include text-base();
   @include h2();
   margin-top:     4.5rem;
+}
+
+.index-layout__map-container__map {
+  height: 400px;
 }
 
 .index-layout__map-container__login {
