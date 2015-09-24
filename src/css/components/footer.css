@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items:    center;
   padding:        9rem 0;
-  background:     $brand-second;
+  background:     $brand-first;
 }
 
 .footer__logo {
