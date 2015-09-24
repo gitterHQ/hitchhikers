@@ -15,6 +15,8 @@ app.use(function(req, res, next) {
 
 app.use('/build', express.static('build'));
 app.use('/node_modules/octicons', express.static('node_modules/octicons'));
+app.use('/images', express.static('src/img'));
+
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(cors());
 

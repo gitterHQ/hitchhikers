@@ -6,6 +6,11 @@ import LeaderBoardView      from '../views/leaderboard-view';
 
 var CountryCollection = Backbone.Collection.extend({
   url: '/leaderboards/country',
+  model: Backbone.Model.extend({
+    initialize: function(attrs) {
+      this.set('image', `/images/flags/${attrs.code.toLowerCase()}.png`);
+    },
+  }),
 });
 
 var DistanceCollection = Backbone.Collection.extend({
@@ -14,6 +19,7 @@ var DistanceCollection = Backbone.Collection.extend({
     initialize: function(attrs) {
       this.set('username', attrs.login);
       this.set('count', attrs.distance);
+      this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
     },
   }),
 });
