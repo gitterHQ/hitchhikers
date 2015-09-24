@@ -27,7 +27,7 @@
   @include h2();
   max-width:     80rem;
   margin-top:    4.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 7.2rem;
 }
 
 .results-list {
@@ -61,7 +61,8 @@
 }
 
 .suggestion-content__reason {
-  font-size: 1.2rem;
-  color: #fff;
+  font-size:   1.2rem;
+  color:       #fff;
   font-weight: 200;
+  line-height: 1.8rem;
 }

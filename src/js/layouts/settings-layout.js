@@ -27,10 +27,10 @@ export default Marionette.LayoutView.extend({
 
   model: new Backbone.Model(),
   modelEvents: {
-    'change': 'render'
+    'change': 'render',
   },
 
-  initialize: function (){
+  initialize: function() {
     getUser().then((user) => {
       if (user.email) emailModel.set('value', user.email);
       if (user.displayVal) locationModel.set('value', user.displayVal);

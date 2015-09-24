@@ -56,6 +56,8 @@
 .leaderboard__items__item {
   @include row();
   @include p();
+  min-width:     22.6rem;
+  margin-bottom: 1rem;
 }
 
 .leaderboard__items__item__image {
