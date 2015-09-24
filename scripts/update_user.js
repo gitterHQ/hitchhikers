@@ -1,9 +1,14 @@
+'use strict';
+
 var db = require('../lib/db');
 
 var attrs = {
-  login: "lerouxb",
-  name: "Le Roux Bodenstein",
-  email: "lerouxb@gmail.com"
+  email: "lerouxb@gmail.com",
+  code: '',
+  country: '',
+  city: '',
+  lon: '',
+  lat: '',
 };
 
 db.users.update("lerouxb", attrs)
