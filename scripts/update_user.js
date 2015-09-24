@@ -1,4 +1,5 @@
 'use strict';
+require('../validate-environment');
 
 var db = require('../lib/db');
 

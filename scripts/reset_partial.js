@@ -1,3 +1,5 @@
+require('../validate-environment');
+
 var neo4jClient = require('../lib/db/neo4jclient');
 
 var q = [

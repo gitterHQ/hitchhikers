@@ -1,3 +1,5 @@
+require('../validate-environment');
+
 var _ = require('underscore');
 var db = require('../lib/db');
 

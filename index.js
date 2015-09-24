@@ -1,5 +1,7 @@
 'use strict';
 
+require('./validate-environment');
+
 var express = require('express');
 var cookieParser = require('cookie-parser')
 var authuser = require('./lib/middleware/authuser');
