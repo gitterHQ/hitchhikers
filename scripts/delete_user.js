@@ -1,6 +1,6 @@
-var users = require('../lib/db/users');
+var db = require('../lib/db');
 
-users.destroy("lerouxb")
+db.users.destroy("lerouxb")
   .catch(function(err) {
     throw err;
   });

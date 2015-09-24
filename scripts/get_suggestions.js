@@ -1,7 +1,7 @@
 var _ = require('underscore');
-var users = require('../lib/db/users');
+var db = require('../lib/db');
 
-users.getSuggestions(process.argv[2] || 'lerouxb')
+db.users.getSuggestions(process.argv[2] || 'lerouxb')
   .then(function(results) {
     console.log(JSON.stringify(results, null, 2));
   })

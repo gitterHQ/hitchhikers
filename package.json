@@ -50,6 +50,7 @@
     "webpack": "^1.12.1"
   },
   "dependencies": {
+    "async": "^1.4.2",
     "bluebird": "^2.10.1",
     "body-parser": "^1.14.0",
     "cookie-parser": "^1.4.0",
@@ -61,6 +62,7 @@
     "geolib": "^2.0.18",
     "http-server": "^0.8.0",
     "ioredis": "^1.9.0",
+    "node-geocoder": "^3.0.2",
     "octicons": "^2.4.1",
     "request": "^2.63.0",
     "statuserror": "0.0.1",

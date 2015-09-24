@@ -1,6 +1,6 @@
-var users = require('../lib/db/users');
+var db = require('../lib/db');
 
-users.get("lerouxb")
+db.users.get("lerouxb")
   .then(function(user) {
     console.log(user);
   })

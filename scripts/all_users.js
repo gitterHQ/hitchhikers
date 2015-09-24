@@ -1,6 +1,6 @@
-var users = require('../lib/db/users');
+var db = require('../lib/db');
 
-users.findAll()
+db.users.findAll()
   .then(function(users) {
     console.log(users);
   })

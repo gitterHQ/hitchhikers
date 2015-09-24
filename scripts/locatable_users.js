@@ -1,6 +1,6 @@
-var users = require('../lib/db/users');
+var db = require('../lib/db');
 
-users.findLocatable()
+db.users.findLocatable()
   .then(function(users) {
     console.log(users);
   })
