@@ -1,10 +1,5 @@
-import url                      from 'url';
-import querystring              from 'querystring';
 import Backbone                 from 'backbone';
 import promiseDB                from 'promise-db';
-import clientSecretService      from '../services/client-secret';
-import githubAccessTokenService from '../services/github-access-token';
-import { getPermissions }       from '../services/user-permissions';
 import dbConfig                 from '../../../config/indexed';
 import { getUser, getUserFromAPI }              from '../services/user';
 
@@ -16,6 +11,7 @@ export default Backbone.Router.extend({
     'log-out':          'onRouteLogOut',
     'settings':         'onRouteSettings',
     'loading':          'onRouteLoading',
+    'results':          'onRouteResults()',
     'error/:errorType': 'onRouteError',
   },
 
@@ -29,7 +25,7 @@ export default Backbone.Router.extend({
           //TODO this needs to be persisted on the server
           if (user.hasCompletedForm) {
             //if the user has never added their details or permissions direct to the form
-            console.log('redirect to main page');
+            this.onRouteResults();
           } else {
             this.onRouteSettings();
           }
@@ -55,6 +51,10 @@ export default Backbone.Router.extend({
             });
 
             indexLayout.render();
+
+            //if we have a previously rendered menu, close it
+            if (this.menuTriggerView) this.menuTriggerView.close();
+
           });
         }
       });
@@ -63,7 +63,7 @@ export default Backbone.Router.extend({
   //Post login view
   onRouteLoggedIn: function() {
     getUserFromAPI()
-      .then((user) => this.navigate('', { trigger: true }))
+      .then(() => this.navigate('', { trigger: true }))
       .catch((err) => this.navigate(`/error/${err.message}`));
   },
 
@@ -79,9 +79,7 @@ export default Backbone.Router.extend({
   onRouteSettings: function() {
     require([
         '../layouts/settings-layout',
-        '../views/menu-trigger.js',
-        '../views/menu-view',
-    ], (SettingsLayout, MenuTriggerView, MenuView) => {
+    ], (SettingsLayout) => {
 
       //settings layout
       var settingsLayout = new SettingsLayout({
@@ -89,14 +87,28 @@ export default Backbone.Router.extend({
       });
       settingsLayout.render();
 
+      //listen to form complete
+      this.listenTo(settingsLayout, 'form:submit', () => {
+        this.stopListening(settingsLayout, 'form:submit');
+
+        //manually call the routeAction as we are already on the index page
+        this.onIndexRoute();
+      });
+      this.initMenus();
+    });
+  },
+
+  initMenus: function() {
+    require([
+      '../views/menu-trigger.js',
+      '../views/menu-view',
+    ], (MenuTriggerView, MenuView) => {
       //If we don't already have a menu trigger view make one
       if (!this.menuTriggerView) {
         this.menuTriggerView = new MenuTriggerView({
           el: '[data-component="menu-trigger"]',
         });
         this.menuTriggerView.render();
-      } else {
-        this.menuTriggerView.close();
       }
 
       //if we don't already have a menu view make one
@@ -105,6 +117,19 @@ export default Backbone.Router.extend({
           el: '[data-component="user-menu"]',
         });
       }
+    });
+  },
+
+  onRouteResults: function() {
+    require([
+      '../layouts/results-layout',
+    ], (ResultsLayout) => {
+
+      var resultsLayout = new ResultsLayout({
+        el: '[data-component=application]',
+      });
+      resultsLayout.render();
+      this.initMenus();
 
     });
   },

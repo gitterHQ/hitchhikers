@@ -3,6 +3,8 @@ import Marionette        from 'backbone.marionette';
 import settingsTemplate  from '../../templates/settings/layout.hbs';
 import SettingsInputView from '../views/setting-input-view';
 import LocationInputView from '../views/location-input-view';
+import { getUser, setUser } from '../services/user';
+
 import {
   locationModel,
   attendanceModel,
@@ -40,7 +42,17 @@ export default Marionette.LayoutView.extend({
 
   onFormSubmit: function(e) {
     e.preventDefault();
-    console.log('submit', e);
+    //TODO submit and validate data
+    getUser()
+      .then((user) => {
+        user.hasCompletedForm = true;
+        return setUser(user);
+      })
+      .then(() => {
+        console.log('written user', this);
+        this.trigger('form:submit');
+      })
+      .catch((err) => this.trigger('error', err));
   },
 
 });
