@@ -1,3 +1,5 @@
+require('../validate-environment');
+
 // USAGE:
 // node get_random_locations.js > random-locations.json
 

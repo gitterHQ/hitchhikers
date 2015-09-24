@@ -1,3 +1,5 @@
+require('../validate-environment');
+
 var db = require('../lib/db');
 
 db.users.get("lerouxb")
