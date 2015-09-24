@@ -94,7 +94,10 @@ export default Backbone.Router.extend({
         //manually call the routeAction as we are already on the index page
         this.onIndexRoute();
       });
+
       this.initMenus();
+      if (this.menuTriggerView) this.menuTriggerView.close();
+
     });
   },
 
