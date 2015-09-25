@@ -1,4 +1,6 @@
 import Backbone                 from 'backbone';
+import Q                        from 'q';
+import request                  from 'superagent';
 import promiseDB                from 'promise-db';
 import dbConfig                 from '../../../config/indexed';
 import { getUser, getUserFromAPI }              from '../services/user';
@@ -70,6 +72,15 @@ export default Backbone.Router.extend({
   onRouteLogOut: function() {
     promiseDB.createDB(dbConfig)
       .then((db) => promiseDB.deleteDB(db))
+      .then(() => {
+        //log out of the api
+        return Q.Promise((resolve, reject) => {
+          request.get('/github/logout').end((err, res) => {
+            if (err) return reject(err);
+            resolve(res.body);
+          });
+        });
+      })
       .then(() => this.navigate('', { trigger: true }))
       .catch((err) => {
         this.navigate(`/error/${err.message}`);
