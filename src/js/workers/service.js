@@ -8,10 +8,8 @@ self.addEventListener('install', function(e) {
     return res.json();
   })
   .then(function(json) {
-    console.log('got json');
     return caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('got caches');
         return cache.addAll(json);
       });
   });
