@@ -6,7 +6,13 @@
     </h2>
 
     {{#if distance}}
-    <a href="https://twitter.com/share?text='I've travelled {{distance}} miles to Github Universe. Try to find me!'"
+      <a href="https://twitter.com/share?text=I've travelled {{distance}} miles to Github Universe. Try to find me!"
+       target="_blank"
+       class="results-container__share">
+        <i class="fa fa-twitter"></i> Share
+      </a>
+    {{else}}
+      <a href="https://twitter.com/share?text=I've travelled to Github Universe. Try to find me!"
        target="_blank"
        class="results-container__share">
         <i class="fa fa-twitter"></i> Share

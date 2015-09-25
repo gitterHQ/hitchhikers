@@ -32,10 +32,10 @@
   </p>
 
   <form class="hidden" data-component="details">
-    <input type="text" name="lat" />
-    <input type="text" name="lng" />
-    <input type="text" name="country_short" />
-    <input type="text" name="locality" />
-    <input type="text" name="country" />
+    <input type="text" {{#if lat}}     value="{{lat}}"    {{/if}} name="lat" />
+    <input type="text" {{#if lon}}     value="{{lon}}"    {{/if}} name="lng" />
+    <input type="text" {{#if code}}    value="{{code}}"   {{/if}} name="country_short" />
+    <input type="text" {{#if city}}    value="{{city}}"   {{/if}} name="locality" />
+    <input type="text" {{#if country}} value="{{country}}"{{/if}} name="country" />
   </form>
 </section>
