@@ -6,6 +6,7 @@ var updateUserGraph = require('../lib/graph/update-user-graph');
 
 tentacles.user.get(process.argv[2])
   .then(function(attrs) {
+    delete attrs.email;
     return db.users.create(attrs);
   })
   .then(function(user) {
