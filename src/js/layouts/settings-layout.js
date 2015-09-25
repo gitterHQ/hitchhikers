@@ -34,7 +34,10 @@ export default Marionette.LayoutView.extend({
     getUser().then((user) => {
       emailModel.set('storedVal', user.email);
       locationModel.set('storedVal', user.displayVal);
-      this.model.set('hasCompletedForm', user.hasCompletedForm);
+      console.log('-----------------------');
+      console.log(user);
+      console.log('-----------------------');
+      this.model.set(user);
     });
   },
 
