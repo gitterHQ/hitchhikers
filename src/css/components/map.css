@@ -1,0 +1,21 @@
+@import "../mixins/text/base.css";
+@import "../mixins/text/h1.css";
+@import "../mixins/text/h2.css";
+@import "../mixins/utils/border-box.css";
+@import "../mixins/grid/row.css";
+
+.index-layout__map-container__map {
+  background-color: $brand-first;
+}
+#map {
+  width: 100%;
+  height: 400px;
+  cursor: default;
+}
+.leaflet-popup-content {
+  padding: 10px;
+}
+.round-pin {
+  border-radius: 100%;
+  border: 1px solid #a9e2ff;
+}
