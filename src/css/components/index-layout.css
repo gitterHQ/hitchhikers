@@ -5,6 +5,7 @@
 @import "../mixins/text/h2.css";
 @import "../mixins/buttons/btn-primary.css";
 
+
 /* MAP CONTAINER */
 .index-layout__map-container {
   @include border-box();
@@ -28,11 +29,6 @@
   margin-top:     4.5rem;
 }
 
-.index-layout__map-container__map {
-  height: 400px;
-  background-color: $brand-first;
-}
-
 .index-layout__map-container__login {
   @include text-base();
   @include btn-primary();
@@ -40,11 +36,4 @@
 
 .index-layout__map-container__login__icon {
   margin:         0 .3em;
-}
-.leaflet-popup-content {
-  padding: 10px;
-}
-.round-pin {
-  border-radius: 100%;
-  border: 1px solid #a9e2ff;
 }

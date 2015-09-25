@@ -4,11 +4,13 @@ import resultsLayoutTemplate  from '../../templates/results/layout.hbs';
 import LeadboardLayout        from './leaderboard-layout';
 import ResultsView            from '../views/results-view';
 import { getUser }            from '../services/user';
+import MapView                from '../views/map-view';
 
 export default Marionette.LayoutView.extend({
   template: resultsLayoutTemplate,
 
   regions: {
+    map:          '[data-component="index-layout-map"]',
     leaderBoards: '[data-component="index-layout-leaderboard"]',
     results:      '[data-component="results"]',
   },
@@ -25,6 +27,7 @@ export default Marionette.LayoutView.extend({
   },
 
   onRender: function() {
+    this.map.show(new MapView());
     this.leaderBoards.show(new LeadboardLayout());
     this.results.show(new ResultsView());
   },
