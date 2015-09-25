@@ -23,7 +23,7 @@ export default Backbone.Router.extend({
         //as the user is already logged in
         if (user) {
           //TODO this needs to be persisted on the server
-          if (user.hasCompletedForm) {
+          if (user.lat) {
             //if the user has never added their details or permissions direct to the form
             this.onRouteResults();
           } else {
