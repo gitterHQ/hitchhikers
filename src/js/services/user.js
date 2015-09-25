@@ -1,3 +1,4 @@
+import Q from 'q';
 import _          from 'lodash';
 import promiseDB  from 'promise-db';
 import dbConfig   from '../../../config/indexed';
@@ -6,7 +7,7 @@ import request    from 'superagent';
 var id = 1;
 
 export var getUser = () => {
-  return new Promise((resolve, reject) => {
+  return Q.Promise((resolve, reject) => {
     promiseDB
       .createDB(dbConfig)
       .then((db) => promiseDB.get(db, 'user', id))
@@ -22,7 +23,7 @@ export var getUser = () => {
 };
 
 export var getUserFromAPI = () => {
-  return new Promise((resolve, reject) => {
+  return Q.Promise((resolve, reject) => {
     request.get('/user').end((err, res) => {
       var user = res.body;
       user.id = id;
@@ -39,7 +40,7 @@ export var getUserFromAPI = () => {
 
 export var setUser = (user) => {
   user.id = id;
-  return new Promise((resolve, reject) => {
+  return Q.Promise((resolve, reject) => {
     promiseDB
      .createDB(dbConfig)
      .then((db) => promiseDB.put(db, 'user', user))
@@ -50,7 +51,7 @@ export var setUser = (user) => {
 };
 
 export var setUserOnAPI = (user) => {
-  return new Promise((resolve, reject) => {
+  return Q.Promise((resolve, reject) => {
     request
       .put('/user')
       .send(user)
