@@ -11,6 +11,7 @@ var oldSync = Backbone.sync;
 Backbone.sync = function(method, obj, options) {
 
   obj.name = (obj.name || (count += 1));
+  options = getOptions(options, obj.name);
 
   return promiseDB
     .createDB(dbConfig)
@@ -43,6 +44,7 @@ Backbone.sync = function(method, obj, options) {
         oldSync.apply(this, arguments);
       } else {
 
+        results = uniq(results);
         var diffTime = +new Date() - results[0].setTime;
         if (diffTime >= limit) {
 
@@ -72,4 +74,29 @@ function uniq(arr) {
   return Object.keys(store).map((key) => {
     return store[key];
   });
+}
+
+function getOptions(options, name) {
+  var oldSuccess = options.success;
+
+  options.success = function(results) {
+
+    promiseDB.createDB(dbConfig).then((db) => {
+
+      results = results.map((result) => {
+        var t = _.extend({}, result, {
+          owner: name,
+          setTime: +new Date(),
+        });
+        return t;
+      });
+
+      return promiseDB.put(db, 'results', results);
+    });
+
+    oldSuccess(results);
+
+  };
+
+  return options;
 }
