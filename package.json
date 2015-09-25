@@ -67,6 +67,7 @@
     "octicons": "^2.4.1",
     "request": "^2.63.0",
     "serve-favicon": "^2.3.0",
+    "serviceworker-cache-polyfill": "git+https://github.com/coonsta/cache-polyfill.git",
     "statuserror": "0.0.1",
     "superagent": "^1.4.0",
     "tentacles": "^0.2.8",

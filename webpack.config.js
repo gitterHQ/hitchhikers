@@ -13,8 +13,8 @@ var nested       = require('postcss-nested');
 
 var webpackConfig = {
   entry: {
-    app: path.resolve(__dirname, './src/js/index.js'),
-    serviceWorker: path.resolve(__dirname, './src/js/workers/service.js'),
+    app:     path.resolve(__dirname, './src/js/index.js'),
+    service: path.resolve(__dirname, './src/js/workers/service.js'),
   },
   output: {
     path:          path.resolve(__dirname, './build'),

@@ -2,6 +2,7 @@
 
 require('./validate-environment');
 
+var path = require('path');
 var express = require('express');
 var cookieParser = require('cookie-parser')
 var authuser = require('./lib/middleware/authuser');
@@ -46,6 +47,9 @@ app.use(function(err, req, res, next) {
   res.sendStatus(500);
 });
 
+app.get('/worker-cache.js', function(req, res){
+  res.sendFile(path.resolve(__dirname, './node_modules/serviceworker-cache-polyfill/index.js'));
+});
 
 app.get('/', function(req, res){
   res.sendFile('./index.html', {root: __dirname});

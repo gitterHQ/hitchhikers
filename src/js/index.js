@@ -3,13 +3,12 @@ import homeStyles from '../css/home.css';
 import Backbone from 'backbone';
 import IndexRouter from './routers/index-router';
 
-var router = new IndexRouter();
+new IndexRouter();
 
-console.log('checking');
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/build/serviceWorker.js')
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/build/service.js')
     .then(() => {
-      console.log('service worker registered');
+      console.log('service worker registered again 3');
     })
     .catch((err) => {
       console.log('-----------------------');
@@ -17,14 +16,5 @@ if('serviceWorker' in navigator) {
       console.log('-----------------------');
     });
 }
-
-
-/*
-window.addEventListener('error', (e) => {
-  e.preventDefault();
-  router.navigate(`/error/${e.message}`);
-  return false;
-});
-*/
 
 Backbone.history.start();
