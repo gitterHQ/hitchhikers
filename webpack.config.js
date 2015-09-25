@@ -10,7 +10,7 @@ var calc         = require('postcss-calc');
 var autoprefixer = require('autoprefixer');
 var nested       = require('postcss-nested');
 
-module.exports = {
+var webpackConfig = {
   entry: {
     app: path.resolve(__dirname, './src/js/index.js'),
   },
@@ -51,8 +51,7 @@ module.exports = {
     new ExtractTextPlugin('styles.css'),
     new webpack.ProvidePlugin({
       'jQuery': 'jquery',
-    }),
-    new webpack.optimize.UglifyJsPlugin()
+    })
   ],
   resolve: {
     alias: {
@@ -97,3 +96,9 @@ module.exports = {
     ];
   },
 };
+
+if (!process.env.DEV) {
+  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports = webpackConfig;
