@@ -1,8 +1,9 @@
+import Q from 'q';
 import promiseDB from 'promise-db';
 import dbConfig  from '../../../config/indexed.js';
 
 export var getPermissions = () => {
-  return new Promise((resolve, reject) => {
+  return Q.Promise((resolve, reject) => {
     //there will only ever be on permissions object so the id is always 1
     promiseDB
       .createDB(dbConfig)
@@ -19,7 +20,7 @@ export var getPermissions = () => {
 };
 
 export var setPermissions = (permissions) => {
-  return new Promise((resolve, reject) => {
+  return Q.Promise((resolve, reject) => {
     promiseDB
       .createDB(dbConfig)
       .then((db) => {

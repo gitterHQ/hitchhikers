@@ -1,7 +1,8 @@
+import Q from 'q';
 import request    from 'superagent';
 
 export default function() {
-  return new Promise(function(resolve, reject) {
+  return Q.Promise(function(resolve, reject) {
     request
       .get('/client/key')
       .end((err, res) => {
