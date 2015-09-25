@@ -34,9 +34,7 @@ export default Marionette.LayoutView.extend({
     getUser().then((user) => {
       emailModel.set('storedVal', user.email);
       locationModel.set('storedVal', user.displayVal);
-      console.log('-----------------------');
-      console.log(user);
-      console.log('-----------------------');
+
       this.model.set(user);
     });
   },
@@ -68,8 +66,6 @@ export default Marionette.LayoutView.extend({
       displayVal: $('[name=location]').val(),
       email:      !(emailPrivate) ? $('[name=email]').val() : '',
     };
-
-    console.log(results);
 
     getUser()
       .then((user) => {

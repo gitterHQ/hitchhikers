@@ -16,7 +16,6 @@ export default Marionette.ItemView.extend({
   },
 
   onInputChange: function(e) {
-    console.log('change');
     this.model.set('value', e.target.value);
   },
 
