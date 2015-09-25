@@ -2,18 +2,13 @@ require('../validate-environment');
 
 var db = require('../lib/db');
 var tentacles = require('../lib/tentacles');
-var queueUserGraphUpdate = require('../lib/graph/queue-update');
+var updateUserGraph = require('../lib/graph/update-user-graph');
 
 tentacles.user.get(process.argv[2])
   .then(function(attrs) {
     return db.users.create(attrs);
   })
   .then(function(user) {
-    return queueUserGraphUpdate(user.login);
+    return updateUserGraph(user.login);
   })
-  .catch(function(err) {
-    throw err;
-  });
-
-
-
+  .done();
