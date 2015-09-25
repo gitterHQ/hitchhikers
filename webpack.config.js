@@ -12,7 +12,6 @@ var autoprefixer = require('autoprefixer');
 var nested       = require('postcss-nested');
 
 var webpackConfig = {
-  devtool: 'inline-source-map',
   entry: {
     app:     path.resolve(__dirname, './src/js/index.js'),
     service: path.resolve(__dirname, './src/js/workers/service.js'),

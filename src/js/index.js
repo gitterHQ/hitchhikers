@@ -7,6 +7,9 @@ new IndexRouter();
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/build/service.js')
+    .then(() => {
+      console.log('SERVICE WORKER STARTED');
+    })
     .catch((err) => {
       console.log('-----------------------');
       console.log(err);
