@@ -30,6 +30,7 @@ app.use('/user', authuser, require('./lib/routes/user'));
 app.use('/users', require('./lib/routes/users'));
 app.use('/private', privatesecret, require('./lib/routes/private'));
 app.use('/leaderboards', require('./lib/routes/leaderboards'));
+app.use('/assets', require('./lib/routes/asset-stats'));
 
 app.use(function(err, req, res, next) {
   console.error(err.stack);

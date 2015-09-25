@@ -1,5 +1,6 @@
-var path = require('path');
-var webpack = require('webpack');
+var fs                = require('fs');
+var path              = require('path');
+var webpack           = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var mixins       = require('postcss-sassy-mixins');
@@ -13,6 +14,7 @@ var nested       = require('postcss-nested');
 var webpackConfig = {
   entry: {
     app: path.resolve(__dirname, './src/js/index.js'),
+    serviceWorker: path.resolve(__dirname, './src/js/workers/service.js'),
   },
   output: {
     path:          path.resolve(__dirname, './build'),
@@ -51,7 +53,23 @@ var webpackConfig = {
     new ExtractTextPlugin('styles.css'),
     new webpack.ProvidePlugin({
       'jQuery': 'jquery',
-    })
+    }),
+    function() {
+      this.plugin('done', function(stats) {
+        //get some stats
+        var result = stats.toJson({
+          chunkModules: true,
+        });
+
+        //write some stats
+        fs.writeFileSync(
+          path.resolve(__dirname, './build/stats.json'),
+          JSON.stringify(result, null, 2),
+          'utf8'
+        );
+
+      });
+    },
   ],
   resolve: {
     alias: {
