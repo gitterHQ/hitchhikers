@@ -1,7 +1,7 @@
 var fs = require('fs');
 var assert = require('assert');
 
-var text = fs.readFileSync('./env.sh.example', {encoding: 'utf8'});
+var text = fs.readFileSync(__dirname+'/env.sh.example', {encoding: 'utf8'});
 var lines = text.split(/[\r\n]+/);
 lines.forEach(function(line) {
   if (line.indexOf('export ') == -1) {
