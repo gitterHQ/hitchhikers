@@ -21,11 +21,12 @@ export default Backbone.Router.extend({
   onIndexRoute: function() {
     getUser()
       .then((user) => {
+
         //if we already have an access key don't show the index page
         //as the user is already logged in
         if (user) {
           //TODO this needs to be persisted on the server
-          if (user.lat) {
+          if (user.hasCompletedForm) {
             //if the user has never added their details or permissions direct to the form
             this.onRouteResults();
           } else {
