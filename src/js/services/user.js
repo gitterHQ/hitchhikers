@@ -49,7 +49,7 @@ export var setUserOnAPI = (user) => {
       .end((err, res) => {
         if (err) return reject(err);
         user = _.extend({}, user, res.body);
-        setUser(user).then(resolve).catch(reject);
+        resolve(user);
       });
   });
 };
