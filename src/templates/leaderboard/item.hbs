@@ -9,7 +9,7 @@
 {{else}}
 <img class="leaderboard__items__item__image" alt="{{username}} title=" {{username}} src="{{image}}" />
 {{#if link}}<a class="leaderboard__link" target="_blank"  href="{{link}}">{{/if}}
-  <p class="leaderboard__items__item__username">{{username}}</p>
+  <p class="leaderboard__items__item__username">{{username}}{{#if country}}, {{country}}{{/if}} </p>
 {{#if link}}</a>{{/if}}
 <p class="leaderboard__items__item__count">{{count}}</p>
 {{/if}}
