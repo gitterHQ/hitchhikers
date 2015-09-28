@@ -22,6 +22,9 @@ export default Marionette.CompositeView.extend({
   childView: LeaderBoardItem,
   childViewContainer: '[data-component="results-list"]',
   collection: new ResultsCollection(),
+  filter: function(model, index){
+    return index < 10;
+  },
 
   initialize: function() {
     this.collection.fetch();
