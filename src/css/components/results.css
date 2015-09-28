@@ -66,6 +66,7 @@
   color:       #fff;
   font-weight: 200;
   line-height: 1.8rem;
+  word-wrap: break-word;
 }
 
 .results-container__share {

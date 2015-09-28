@@ -21,10 +21,10 @@ var DistanceCollection = Backbone.Collection.extend({
   url: '/leaderboards/distance',
   model: Backbone.Model.extend({
     initialize: function(attrs) {
-      this.set('username', attrs.login);
+      this.set('username', attrs.username);
       this.set('count', Math.round(attrs.distance / 1600));
       this.set('image', `https://avatars.githubusercontent.com/${attrs.username}`);
-      this.set('link', `https://github.com/${attrs.login}`);
+      this.set('link', `https://github.com/${attrs.username}`);
     },
   }),
   filter: function(model, index) {
