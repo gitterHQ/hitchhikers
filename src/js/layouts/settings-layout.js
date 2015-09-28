@@ -33,6 +33,7 @@ export default Marionette.LayoutView.extend({
   initialize: function() {
     getUser().then((user) => {
       emailModel.set('storedVal', user.email);
+      emailModel.set('private', !!!user.email.length);
       locationModel.set('storedVal', user.displayVal);
 
       this.model.set(user);
