@@ -6,25 +6,14 @@ import request    from 'superagent';
 
 var id = 1;
 
-export var getUser = () => {
-  return Q.Promise((resolve, reject) => {
-    promiseDB
-      .createDB(dbConfig)
-      .then((db) => promiseDB.get(db, 'user', id))
-      .then((user) => {
-        resolve(user);
-      })
-
-      //if we fail here we have no user object
-      .catch((err) => {
-        resolve(null);
-      });
-  });
-};
-
 export var getUserFromAPI = () => {
   return Q.Promise((resolve, reject) => {
     request.get('/user').end((err, res) => {
+
+      if (res.status === 401) {
+        return resolve(null);
+      }
+
       var user = res.body;
       user.id = id;
 
@@ -37,6 +26,8 @@ export var getUserFromAPI = () => {
 
   });
 };
+
+export var getUser = getUserFromAPI;
 
 export var setUser = (user) => {
   user.id = id;
