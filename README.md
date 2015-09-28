@@ -1,7 +1,7 @@
 
 # Hitchhikers Guide to GitHub Universe
 
-![Logo](https://raw.githubusercontent.com/gitterHQ/hitchhikers/master/src/svg/gitter-planet-icon.svg)
+![Logo](./src/svg/gitter-planet-icon.svg)
 
 Suggests attendees to meet at GitHub Universe, based on your public GitHub profile.
 
