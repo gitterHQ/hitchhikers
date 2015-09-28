@@ -43,6 +43,10 @@
   & li {
     flex:         0 0 20rem;
     margin:  0 1rem;
+
+    @media(max-width: 780px) {
+      flex: 0 0 100%;
+    }
   }
 
   & .leaderboard__items__item__count {
