@@ -58,6 +58,7 @@
 
 .suggestion-content {
   text-align: left;
+  max-width: 80%;
 }
 
 .suggestion-content__name {
