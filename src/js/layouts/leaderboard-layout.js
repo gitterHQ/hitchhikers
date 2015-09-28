@@ -5,10 +5,11 @@ import leaderBoardsTemplate from '../../templates/leaderboard/layout.hbs';
 import LeaderBoardView      from '../views/leaderboard-view';
 
 var CountryCollection = Backbone.Collection.extend({
-  url: '/leaderboards/country',
+  url: '/leaderboards/city',
   model: Backbone.Model.extend({
     initialize: function(attrs) {
       this.set('image', `/images/flags/${attrs.code.toLowerCase()}.png`);
+      this.set('username', attrs.city);
     },
   }),
   filter: function(model, index) {
@@ -22,7 +23,7 @@ var DistanceCollection = Backbone.Collection.extend({
     initialize: function(attrs) {
       this.set('username', attrs.login);
       this.set('count', Math.round(attrs.distance / 1600));
-      this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
+      this.set('image', `https://avatars.githubusercontent.com/${attrs.username}`);
       this.set('link', `https://github.com/${attrs.login}`);
     },
   }),
