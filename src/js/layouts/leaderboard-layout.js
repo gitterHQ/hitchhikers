@@ -10,6 +10,7 @@ var CountryCollection = Backbone.Collection.extend({
     initialize: function(attrs) {
       this.set('image', `/images/flags/${attrs.code.toLowerCase()}.png`);
       this.set('username', attrs.city);
+      this.set('country', attrs.country);
     },
   }),
   filter: function(model, index) {

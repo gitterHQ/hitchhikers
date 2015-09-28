@@ -1,3 +1,54 @@
+
+# Hitchhikers Guide to GitHub Universe
+
+Suggests attendees to meet at GitHub Universe, based on your public GitHub profile.
+
+# What's going on here?
+
+## TL;DR
+
+When you sign-in using your GitHub credentials, we use information available in
+your GitHub public profile to suggest other GitHub Universe attendees who you may
+be interested in meeting up with at the conference.
+
+## Long Version
+
+On logging in, we query publicly available information on the GitHub API to find 
+match you with other GitHub Universe attendees. 
+
+Examples of other attendees we may suggest (in order of priority)
+
+1. Somebody you follow on GitHub
+2. Other attendees who own a repo you've starred, watched, forked or created issues against.
+3. Other attendees who have starred, watched etc many of the same repos as you.
+
+## How does it work
+
+Using public profile information on GitHub, we use a neo4j graph database to 
+build up a graph network of your public activity on GitHub. We then analyze this
+graph to suggest other attendees.
+
+## How secure is this
+
+We don't request any scopes we authenticate against the GitHub OAuth endpoint. 
+This means we can never access any information that can't already be accessed
+anonymously. 
+
+This also means that we don't have permission to make any changes privately on 
+your behalf on GitHub.
+
+For extra security, we don't store your GitHub token in the database.
+
+## Licence 
+
+MIT
+
+# Contibuting
+
+Contributions are welcome!
+
+# Developer Guide 
+
 Steps to run:
 
 - `docker-compose up -d`
@@ -14,7 +65,7 @@ To manually add a user without having to log in with each of them, use `node scr
 
 There are also all sorts of potentially useful scripts in scripts/.
 
-API:
+# API
 
 * GET **/github/login** to get redirected to github and get logged in
 * GET **/github/logout** clears the auth cookie again

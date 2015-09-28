@@ -21,7 +21,7 @@ export var getUserFromAPI = () => {
       resolve(user);
 
       //save the user into the local db
-      setUser(user);
+      //setUser(user);
     });
 
   });
