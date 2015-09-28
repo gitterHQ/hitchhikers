@@ -65,6 +65,13 @@
   height:        21px;
   margin:        auto 20px auto 0;
   border-radius: 100%;
+
+
+  &.octicon {
+    color:     white;
+    font-size: 2.5rem;
+  }
+
 }
 
 .leaderboard__items__item__count {
