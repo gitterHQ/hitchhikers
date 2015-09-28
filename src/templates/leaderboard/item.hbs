@@ -3,13 +3,13 @@
   <img class="leaderboard__items__item__image" alt="{{username}} title=" {{username}} src="{{image}}" />
 </div>
 <div class="suggestion-content">
-  <p class="suggestion-content__name"><a href="https://gitter.im/{{username}}">{{username}}</a></p>
+  <p class="suggestion-content__name"><a href="https://gitter.im/{{username}}" target="_blank">{{username}}</a></p>
   <p class="suggestion-content__reason">{{reason}}</p>
 </div>
 {{else}}
 <img class="leaderboard__items__item__image" alt="{{username}} title=" {{username}} src="{{image}}" />
 {{#if link}}<a class="leaderboard__link" target="_blank"  href="{{link}}">{{/if}}
-  <p class="leaderboard__items__item__username"><a href="https://gitter.im/{{username}}">{{username}}</a></p>
+  <p class="leaderboard__items__item__username"><a href="https://gitter.im/{{username}}" target="_blank">{{username}}</a></p>
 {{#if link}}</a>{{/if}}
 <p class="leaderboard__items__item__count">{{count}}</p>
 {{/if}}
