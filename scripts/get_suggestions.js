@@ -1,13 +1,11 @@
 require('../validate-environment');
 
-var _ = require('underscore');
-var db = require('../lib/db');
+var usersSuggestions = require('../lib/db/users-suggestions');
 
-db.users.getSuggestions(process.argv[2] || 'lerouxb')
+usersSuggestions(process.argv[2], { maxSuggestions: 100 })
   .then(function(results) {
-    console.log(JSON.stringify(results, null, 2));
+    console.log(results.map(function(suggestion) {
+      return suggestion.login + ',' + suggestion.reason;
+    }).join('\n'))
   })
-  .catch(function(err) {
-    console.error(err);
-    throw err;
-  });
+  .done();
