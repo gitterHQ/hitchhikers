@@ -23,7 +23,7 @@ export default Marionette.CompositeView.extend({
   childViewContainer: '[data-component="results-list"]',
   collection: new ResultsCollection(),
   filter: function(model, index){
-    return index < 10;
+    return index < 12;
   },
 
   initialize: function() {
