@@ -7,7 +7,7 @@ var ResultsCollection = Backbone.Collection.extend({
   url: '/user/suggestions',
   model: Backbone.Model.extend({
     defaults: {
-      shouldShowReason: true
+      shouldShowReason: true,
     },
     initialize: function(attrs) {
       this.set('username', attrs.login);
@@ -22,8 +22,8 @@ export default Marionette.CompositeView.extend({
   childView: LeaderBoardItem,
   childViewContainer: '[data-component="results-list"]',
   collection: new ResultsCollection(),
-  filter: function(model, index){
-    return index < 10;
+  filter: function(model, index) {
+    return index < 12;
   },
 
   initialize: function() {

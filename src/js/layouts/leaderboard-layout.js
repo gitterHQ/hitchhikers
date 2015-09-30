@@ -33,12 +33,37 @@ var DistanceCollection = Backbone.Collection.extend({
   },
 });
 
+var RepoCollection = Backbone.Collection.extend({
+  url: '/leaderboards/repo',
+  model: Backbone.Model.extend({
+    initialize: function(attrs) {
+      this.set('icon', 'repo');
+      this.set('link', `https://github.com/${attrs.repoFullName}`);
+      this.set('username', attrs.repoFullName);
+      this.set('count', attrs.score);
+    },
+  }),
+});
+
+var LanguagesCollection = Backbone.Collection.extend({
+  url: '/leaderboards/repo-languages',
+  model: Backbone.Model.extend({
+    initialize: function(attrs) {
+      this.set('icon', 'file-code');
+      this.set('username', attrs.repoLanguage);
+      this.set('count', attrs.score);
+    },
+  }),
+});
+
 export default Marionette.LayoutView.extend({
   template: leaderBoardsTemplate,
 
   regions:     {
     distance:  '[data-component="distance-travelled"]',
     locations: '[data-component="locations"]',
+    repos:     '[data-component="repos"]',
+    languages: '[data-component="languages"]',
   },
 
   onRender: function() {
@@ -51,5 +76,16 @@ export default Marionette.LayoutView.extend({
       model:      new Backbone.Model({ title: 'Hitchhiking Hometowns' }),
       collection: new CountryCollection(),
     }));
+
+    this.repos.show(new LeaderBoardView({
+      model:      new Backbone.Model({ title: 'Repositories Viewed' }),
+      collection: new RepoCollection(),
+    }));
+
+    this.languages.show(new LeaderBoardView({
+      model:      new Backbone.Model({ title: 'Languages Watched' }),
+      collection: new LanguagesCollection(),
+    }));
+
   },
 });

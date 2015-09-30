@@ -7,7 +7,16 @@
   <p class="suggestion-content__reason">{{reason}}</p>
 </div>
 {{else}}
+
+
+{{#if image}}
 <img class="leaderboard__items__item__image" alt="{{username}} title=" {{username}} src="{{image}}" />
+{{/if}}
+
+{{#if icon}}
+<span class="leaderboard__items__item__image octicon octicon-{{icon}}"></span>
+{{/if}}
+
 {{#if link}}<a class="leaderboard__link" target="_blank"  href="{{link}}">{{/if}}
   <p class="leaderboard__items__item__username">{{username}}{{#if country}}, {{country}}{{/if}} </p>
 {{#if link}}</a>{{/if}}
