@@ -12,6 +12,7 @@ var ResultsCollection = Backbone.Collection.extend({
     initialize: function(attrs) {
       this.set('username', attrs.login);
       this.set('image', `https://avatars.githubusercontent.com/${attrs.login}`);
+      this.set('link', `https://github.com/${attrs.login}`);
     },
   }),
 });

@@ -3,7 +3,11 @@
   <img class="leaderboard__items__item__image" alt="{{username}} title=" {{username}} src="{{image}}" />
 </div>
 <div class="suggestion-content">
+  {{#if link}}
+  <p class="suggestion-content__name"><a class="leaderboard__link" target="_blank"  href="{{link}}">{{username}}</a></p>
+  {{else}}
   <p class="suggestion-content__name">{{username}}</p>
+  {{/if}}
   <p class="suggestion-content__reason">{{reason}}</p>
 </div>
 {{else}}
