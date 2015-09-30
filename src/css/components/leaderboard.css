@@ -81,4 +81,6 @@
 .leaderboard__link {
   color: inherit;
   text-decoration: none;
+  max-width: 75%;
+  word-break: break-word;
 }
