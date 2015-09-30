@@ -8,6 +8,8 @@ var authuser = require('./lib/middleware/authuser');
 var privatesecret = require('./lib/middleware/privatesecret');
 var cors = require('cors');
 var favicon = require('serve-favicon');
+var cache = require('apicache').options({ debug: true }).middleware;
+
 
 var app = express();
 
@@ -29,7 +31,7 @@ app.use('/github', require('./lib/routes/github'));
 app.use('/user', authuser, require('./lib/routes/user'));
 app.use('/users', require('./lib/routes/users'));
 app.use('/private', privatesecret, require('./lib/routes/private'));
-app.use('/leaderboards', require('./lib/routes/leaderboards'));
+app.use('/leaderboards', cache('5 minutes'), require('./lib/routes/leaderboards'));
 
 app.use(function(err, req, res, next) {
   console.error(err.stack);
