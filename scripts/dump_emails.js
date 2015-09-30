@@ -4,7 +4,12 @@ var _ = require('underscore');
 var db = require('../lib/db');
 
 function quote(v) {
-  return v.replace('"', '""'); // excel style? or \"?
+  var s = v.replace('"', '""'); // excel style? or \"?
+  if (s) {
+    return '"'+s+'"'; // just in case. definitely decessart for ,
+  } else {
+    return '';
+  }
 }
 
 db.users.findEmailable()
