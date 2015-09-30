@@ -78,12 +78,12 @@ export default Marionette.LayoutView.extend({
     }));
 
     this.repos.show(new LeaderBoardView({
-      model:      new Backbone.Model({ title: 'Repositories Viewed' }),
+      model:      new Backbone.Model({ title: 'Most Popular Repos' }),
       collection: new RepoCollection(),
     }));
 
     this.languages.show(new LeaderBoardView({
-      model:      new Backbone.Model({ title: 'Languages Watched' }),
+      model:      new Backbone.Model({ title: 'Most Popular Languages' }),
       collection: new LanguagesCollection(),
     }));
 
